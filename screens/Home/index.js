@@ -1,12 +1,18 @@
-import React, { PureComponent } from 'react';
-import styles from './styles';
+import React from 'react';
+import Header from '../../components/Layout/Header';
+import Hero from '../../components/Landing/Hero';
+import About from '../../components/Landing/About/';
+import Projects from '../../components/Landing/Projects';
+import Contact from '../../components/Landing/Contact';
 
-export default class Home extends PureComponent {
-  render() {
-    return (
-      <div className="home full-height-min flex-vertical-center">
-        <style jsx>{styles}</style>
-      </div>
-    );
-  }
+export default function index() {
+  return (
+    <div>
+      <Hero />
+      <Header />
+      <About />
+      <Projects />
+      <Contact />
+    </div>
+  );
 }

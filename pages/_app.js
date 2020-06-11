@@ -5,6 +5,13 @@ import NProgress from 'nprogress';
 import Router, { withRouter } from 'next/router';
 import Layout from 'components/Layout';
 import 'styles/styles.scss';
+import 'animate.css/animate.min.css';
+
+// ------ Stuff that makes font-awesome icons not jump out of place when loading
+import { config } from '@fortawesome/fontawesome-svg-core';
+import '@fortawesome/fontawesome-svg-core/styles.css';
+config.autoAddCss = false;
+// ------ End of that stuff
 
 Router.onRouteChangeStart = () => NProgress.start();
 Router.onRouteChangeComplete = () => NProgress.done();
@@ -25,7 +32,7 @@ class MyApp extends App {
     return (
       <Container>
         <Head>
-          <title>Lava X | NextJS with Bulma Starter</title>
+          <title>Ivan Chavez | Full-Stack Developer</title>
         </Head>
         <Layout>
           <Component {...pageProps} />

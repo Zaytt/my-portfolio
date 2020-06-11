@@ -1,48 +1,58 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import classnames from 'classnames';
 import ActiveLink from 'components/ActiveLink';
 import styles from './styles';
 import LogoDark from 'assets/Logo.svg';
 
-class Header extends Component {
-  render() {
-    return (
-      <div className="container">
-        <nav className={classnames('navbar', 'is-transparent')}>
-          <div className="navbar-brand">
-            <Link href="/">
-              <a className="navbar-item">
-                <img
-                  src={LogoDark}
-                  alt="LavaX Technologies Sdn Bhd"
-                  width="112"
-                  height="28"
-                />
-              </a>
-            </Link>
-            <div className="navbar-burger burger">
-              <span />
-              <span />
-              <span />
-            </div>
-          </div>
-          <div className={'navbar-menu'}>
-            <div className="navbar-end">
-              <ActiveLink
-                href="/test"
-                activeClass="active"
-                className="navbar-item"
-                alt="test page"
-                title="Test Page"
-              />
-            </div>
-          </div>
-        </nav>
-        <style jsx>{styles}</style>
-      </div>
-    );
-  }
-}
+const navBarStyle = {
+  borderBottom: '3px solid hsl(171, 100%, 41%)',
+  // background: '#1b242f',
+  // borderBottom: '3px solid hsl(171, 100%, 29%)',
+};
 
-export default Header;
+export default function Navbar() {
+  return (
+    <nav
+      className={classnames(
+        'navbar',
+        'has-background-black-ter',
+        'is-transparent'
+      )}
+      style={navBarStyle}
+    >
+      <div className={'navbar-menu'}>
+        <div className="navbar-end">
+          <ActiveLink
+            href="#home"
+            activeClass="has-text-white"
+            className="navbar-item has-text-white is-size-6 ml-5 is-uppercase has-text-weight-normal"
+            alt="home"
+            title="Home"
+          />
+          <ActiveLink
+            href="#about"
+            activeClass="has-text-white"
+            className="navbar-item has-text-white is-size-6 ml-5 is-uppercase has-text-weight-normal"
+            alt="about"
+            title="About"
+          />
+          <ActiveLink
+            href="#projects"
+            activeClass="active"
+            className="navbar-item has-text-white is-size-6 ml-5 is-uppercase has-text-weight-normal"
+            alt="projects"
+            title="Projects"
+          />
+          <ActiveLink
+            href="#contact"
+            activeClass="active"
+            className="navbar-item has-text-white is-size-6 ml-5 mr-6 is-uppercase has-text-weight-normal"
+            alt="contact"
+            title="Contact"
+          />
+        </div>
+      </div>
+    </nav>
+  );
+}
