@@ -1,18 +1,12 @@
 import React from 'react';
 import Fade from 'react-reveal/Fade';
+import { Link, animateScroll as scroll } from 'react-scroll';
 
 export default function About() {
   return (
-    <div className="container">
-      {/* <h1
-            className="is-size-2 has-text-centered has-text-weight-semibold mb-6"
-            style={{ textDecoration: 'underline' }}
-          >
-            About
-          </h1> */}
-
-      <div className="columns is-centered  is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd">
-        <div className="column has-text-right">
+    <div className="container" id="about">
+      <div className="columns is-centered is-variable is-1-mobile is-0-tablet is-3-desktop is-8-widescreen is-2-fullhd">
+        <div className="column has-text-right has-text-centered-mobile is-half-tablet is-one-third">
           <Fade left>
             {/* <figure className="image has-text-centered"> */}
             <img src="/static/assets/me-HD3.jpg" style={imgStyle} />
@@ -20,10 +14,10 @@ export default function About() {
           </Fade>
         </div>
 
-        <div className="column is-three-fifths is-narrow">
+        <div className="column  is-half is-narrow is-three-fifths-tablet">
           <Fade right>
-            <div className="card-content has-text-left has-text-weight-normal">
-              <h1 className="title has-text-left has-text-weight-semibold mb-6">
+            <div className="container is-fluid has-text-weight-normal has-text-centered-mobile pt-1">
+              <h1 className="title has-text-left has-text-centered-mobile has-text-weight-semibold mb-6">
                 ABOUT ME
               </h1>
               <h2 className="subtitle">
@@ -31,11 +25,11 @@ export default function About() {
                   I am{' '}
                   <span className="has-text-weight-semibold">Ivan Chavez</span>
                   {', '}a Software{' '}
-                  <span className="has-text-primary has-text-weight-semibold">
+                  <span className="has-text-primary-medium has-text-weight-semibold">
                     Engineer
                   </span>{' '}
                   from Leon,{' '}
-                  <span className="has-text-danger has-text-weight-semibold">
+                  <span className="has-text-danger-medium has-text-weight-semibold">
                     Mexico
                   </span>
                   .
@@ -55,21 +49,38 @@ export default function About() {
                 <p>
                   My latest experience has been focused on building single-page
                   applications with{' '}
-                  <span className="has-text-primary has-text-weight-semibold">
+                  <span className="has-text-primary-medium has-text-weight-semibold">
                     React.js
                   </span>{' '}
                   and{' '}
-                  <span className="has-text-danger has-text-weight-semibold">
+                  <span className="has-text-danger-medium has-text-weight-semibold">
                     Node.js.
                   </span>
                 </p>
+
                 <div class="mt-5">
-                  <button class="button is-outlined is-primary mr-2 has-text-weight-semibold">
-                    CONTACT ME
-                  </button>
-                  <button class="button is-outlined is-danger has-text-weight-semibold">
-                    SEE PORTFOLIO
-                  </button>
+                  <Link
+                    className="has-text-white"
+                    to="contact"
+                    smooth={true}
+                    offset={-75}
+                    duration={700}
+                  >
+                    <button class="button is-info is-outlined mr-2 has-text-weight-semibold">
+                      CONTACT ME
+                    </button>
+                  </Link>
+                  <Link
+                    className="has-text-white"
+                    to="portfolio"
+                    smooth={true}
+                    offset={-120}
+                    duration={700}
+                  >
+                    <button class="button is-outlined is-danger has-text-weight-semibold">
+                      SEE PORTFOLIO
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>

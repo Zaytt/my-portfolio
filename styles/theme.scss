@@ -6,9 +6,12 @@
 @import '~bulma/sass/utilities/initial-variables';
 
 // 2. Override styles - https://bulma.io/documentation/customize/variables/
-// $primary: red;
-// $fullhd: 2000px;
-
+$info: lightseagreen;
+$navbar-breakpoint: $tablet;
+$footer-padding: 2rem 1.5rem 3.5rem;
+$input-focus-border-color: rgb(240, 70, 104);
+$input-focus-box-shadow-color: rgba(240, 70, 104, 0.15);
+$input-arrow: lightseagreen;
 // 3. Bulma enable Modularity, which allow you to import what you need
 // https://bulma.io/documentation/overview/modular/
 @import '~bulma/bulma';

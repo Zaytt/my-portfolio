@@ -34,6 +34,7 @@ class ActiveLink extends PureComponent {
       { active: href === router.pathname },
       className || {}
     );
+
     let hrefProps = !!alt ? { alt } : {};
     hrefProps = !!onClick ? Object.assign({ onClick }, hrefProps) : hrefProps;
     return (

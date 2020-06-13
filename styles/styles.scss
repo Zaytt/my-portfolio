@@ -19,7 +19,31 @@
   align-items: center;
   justify-content: center;
 }
-.navbar {
+.has-text-danger-medium {
+  color: rgb(232, 32, 102);
+}
+
+.has-text-primary-medium {
+  color: lightseagreen;
+}
+
+.navbar > .container {
+  @extends .navbar;
+}
+
+.sticky-navbar {
   position: sticky;
   top: 0;
+}
+
+.navbar-item-active {
+  border-bottom: 1px solid rgb(240, 70, 104);
+}
+
+.social-media-button {
+  color: white;
+}
+.social-media-button:hover {
+  color: lightcyan;
+  // color: hsl(347, 90%, 96%);
 }

@@ -1,12 +1,15 @@
 import React from 'react';
+import SocialMediaBar from './SocialMediaBar';
+import { Link, animateScroll as scroll } from 'react-scroll';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import Jump from 'react-reveal/Jump';
 
 export default function Hero() {
   return (
-    <section className="hero is-fullheight is-dark is-bold">
-      <div className="hero-body">
+    <section className="hero is-fullheight is-dark" id="home">
+      <SocialMediaBar />
+      <div className="hero-body pt-0">
         <div className="container has-text-white">
           <h1
             className="has-text-weight-light is-size-1-mobile"
@@ -36,7 +39,16 @@ export default function Hero() {
       <div className="hero-foot has-text-centered">
         <div className="container">
           <Jump duration={1234}>
-            <FontAwesomeIcon icon={faChevronDown} size="3x" />
+            <Link
+              className="has-text-white"
+              to="about"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={700}
+            >
+              <FontAwesomeIcon icon={faChevronDown} size="3x" />
+            </Link>
           </Jump>
         </div>
       </div>

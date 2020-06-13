@@ -30,9 +30,8 @@ class Layout extends Component {
   render() {
     return (
       <React.Fragment>
-        {/* <Header /> */}
         {this.props.children}
-        {/* <Footer /> */}
+        <Footer />
       </React.Fragment>
     );
   }
