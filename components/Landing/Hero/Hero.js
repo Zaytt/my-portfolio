@@ -42,9 +42,9 @@ export default function Hero() {
             <Link
               className="has-text-white"
               to="about"
-              spy={true}
+              // spy={true}
               smooth={true}
-              offset={-70}
+              offset={-110}
               duration={700}
             >
               <FontAwesomeIcon icon={faChevronDown} size="3x" />

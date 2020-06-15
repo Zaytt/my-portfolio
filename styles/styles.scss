@@ -27,10 +27,6 @@
   color: lightseagreen;
 }
 
-.navbar > .container {
-  @extends .navbar;
-}
-
 .sticky-navbar {
   position: sticky;
   top: 0;
@@ -46,4 +42,34 @@
 .social-media-button:hover {
   color: lightcyan;
   // color: hsl(347, 90%, 96%);
+}
+
+.social-media-button2 {
+  color: hsl(0, 0%, 86%);
+}
+.social-media-button2:hover {
+  color: hsl(0, 0%, 21%);
+  // color: hsl(347, 90%, 96%);
+}
+
+.underline-bold {
+  border-bottom: 3px solid rgb(240, 70, 104);
+}
+
+.is-vertical-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.is-aligned-bottom {
+  display: flex;
+  align-items: end;
+}
+
+.underlined-on-hover {
+}
+.underlined-on-hover:hover {
+  border-bottom: 2px solid rgb(240, 70, 104);
 }

@@ -8,7 +8,7 @@ export default function WhatIDo() {
   const frontEndText = (
     <React.Fragment>
       Dynamic, responsive and fast user interfaces using{' '}
-      <span className="has-text-pr-medium has-text-weight-semibold">
+      <span className="has-text-primary-medium has-text-weight-semibold">
         React.js
       </span>
       , Redux, Bootstrap and Bulma.
@@ -55,10 +55,12 @@ export default function WhatIDo() {
     <section className="mt-6 section" id="whatido">
       <div className="container">
         <div className="has-text-centered mb-6">
-          <h1 className="title has-text-weight-semibold">WHAT I DO</h1>
+          <h1 className="title has-text-weight-semibold">
+            <span className="underline-bold">WHAT I DO</span>
+          </h1>
         </div>
 
-        <div className="columns is-centered">
+        <div className="columns is-centered mt-6 py-6">
           <Fade delay={0} duration={960}>
             <div className="column is-one-quarter has-text-centered">
               <SkillCard

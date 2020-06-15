@@ -61,12 +61,12 @@ export default function Navbar() {
           <div className="navbar-end has-background-black-ter is-dark">
             <span className="navbar-item ">
               <Link
-                activeClass="navbar-item-active"
+                // activeClass="navbar-item-active"
                 className="has-text-white"
                 to="about"
                 spy={true}
                 smooth={true}
-                offset={-100}
+                offset={-110}
                 duration={700}
               >
                 ABOUT
@@ -74,7 +74,7 @@ export default function Navbar() {
             </span>
             <span className="navbar-item ">
               <Link
-                activeClass="navbar-item-active"
+                // activeClass="navbar-item-active"
                 className="has-text-white"
                 to="whatido"
                 spy={true}
@@ -87,7 +87,7 @@ export default function Navbar() {
             </span>
             <span className="navbar-item ">
               <Link
-                activeClass="navbar-item-active"
+                // activeClass="navbar-item-active"
                 className="has-text-white"
                 to="portfolio"
                 spy={true}
@@ -100,7 +100,7 @@ export default function Navbar() {
             </span>
             <span className="navbar-item ">
               <Link
-                activeClass="navbar-item-active"
+                // activeClass="navbar-item-active"
                 className="has-text-white"
                 to="contact"
                 spy={true}

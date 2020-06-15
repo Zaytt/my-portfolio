@@ -23,20 +23,20 @@ export default class Contact extends Component {
       <section className="has-background-dark py-6" id="contact">
         <div className="container is-fluid">
           <div className="has-text-centered ">
-            <Slide left duration={1000}>
+            <Slide left duration={900}>
               <h1 className="title has-text-weight-bold has-text-white">
                 CONTACT
               </h1>
             </Slide>
 
-            <Slide right delay={333} duration={1000}>
+            <Slide right delay={333} duration={900}>
               <div className="columns is-centered is-mobile">
                 <div className="column is-one-fifth-desktop is-one-quarter-tablet is-half-mobile">
                   <hr className="has-background-danger my-0" />{' '}
                 </div>
               </div>
             </Slide>
-            <Slide left delay={666} duration={1000}>
+            <Slide left delay={666} duration={900}>
               <h2 className="has-text-white">
                 Do you have a{' '}
                 <span className="has-text-primary has-text-weight-semibold">
@@ -52,7 +52,7 @@ export default class Contact extends Component {
               </h2>
             </Slide>
           </div>
-          <Slide right delay={999} duration={1000}>
+          <Slide right delay={999} duration={900}>
             <div className="columns is-centered mt-5">
               <div className="column is-narrow is-two-fifths-desktop is-half-tablet">
                 <form>
