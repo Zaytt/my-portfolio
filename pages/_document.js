@@ -16,10 +16,23 @@ export default class MyDocument extends Document {
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <link
-            rel="shortcut icon"
-            type="image/png"
-            href="/static/assets/favicon.ico"
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="/static/assets/apple-touch-icon.png"
           />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="/static/assets/favicon-32x32.png"
+          />
+          <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="/static/assets/favicon-16x16.png"
+          />
+          <link rel="manifest" href="/static/assets/site.webmanifest" />
         </Head>
         <body>
           <Main />
