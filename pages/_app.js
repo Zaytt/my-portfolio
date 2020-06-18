@@ -9,7 +9,6 @@ import 'animate.css/animate.min.css';
 
 // ------ Stuff that makes font-awesome icons not jump out of place when loading
 import { config } from '@fortawesome/fontawesome-svg-core';
-import '@fortawesome/fontawesome-svg-core/styles.css';
 config.autoAddCss = false;
 // ------ End of that stuff
 

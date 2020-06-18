@@ -150,11 +150,14 @@ export default class Contact extends Component {
                         onChange={this.onChange}
                       />
                       <span className="icon is-small is-left">
-                        <FontAwesomeIcon icon={faUser} />
+                        <FontAwesomeIcon width="0" icon={faUser} />
                       </span>
                       {errors.name && (
                         <span className="icon is-small is-right">
-                          <FontAwesomeIcon icon={faExclamationTriangle} />
+                          <FontAwesomeIcon
+                            width="0"
+                            icon={faExclamationTriangle}
+                          />
                         </span>
                       )}
                     </div>
@@ -174,11 +177,14 @@ export default class Contact extends Component {
                         onChange={this.onChange}
                       />
                       <span className="icon is-small is-left">
-                        <FontAwesomeIcon icon={faEnvelope} />
+                        <FontAwesomeIcon width="0" icon={faEnvelope} />
                       </span>
                       {errors.email && (
                         <span className="icon is-small is-right">
-                          <FontAwesomeIcon icon={faExclamationTriangle} />
+                          <FontAwesomeIcon
+                            width="0"
+                            icon={faExclamationTriangle}
+                          />
                         </span>
                       )}
                     </div>
@@ -233,7 +239,11 @@ export default class Contact extends Component {
                         loading ? 'is-loading' : ''
                       }`}
                     >
-                      <FontAwesomeIcon icon={buttonIcon} className="mr-2" />
+                      <FontAwesomeIcon
+                        width="0"
+                        icon={buttonIcon}
+                        className="mr-2"
+                      />
                       {buttonText}
                     </button>
                   </div>

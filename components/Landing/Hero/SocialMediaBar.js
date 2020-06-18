@@ -13,7 +13,8 @@ export default function ContactNavbar() {
             <FontAwesomeIcon
               icon={faGithub}
               size="3x"
-              className="social-media-button mx-4 "
+              className="social-media-button mx-4"
+              width="0"
             />
           </a>
           <a href="https://www.linkedin.com/in/ivanchaveze/" target="_blank">
@@ -21,6 +22,7 @@ export default function ContactNavbar() {
               icon={faLinkedin}
               size="3x"
               className="social-media-button ml-2 mr-6"
+              width="0"
             />
           </a>
         </div>
