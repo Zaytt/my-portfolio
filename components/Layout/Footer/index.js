@@ -19,6 +19,7 @@ export default function index() {
             duration={700}
           >
             <FontAwesomeIcon
+              width="3em"
               icon={faChevronUp}
               size="3x"
               className="has-text-white has-background-danger px-2 py-2 "
@@ -33,6 +34,7 @@ export default function index() {
         <div className="has-text-centered mt-0">
           <a href="https://github.com/Zaytt" target="_blank">
             <FontAwesomeIcon
+              width="3em"
               icon={faGithub}
               size="3x"
               className="mx-4 social-media-button"
@@ -40,6 +42,7 @@ export default function index() {
           </a>
           <a href="https://www.linkedin.com/in/ivanchaveze/" target="_blank">
             <FontAwesomeIcon
+              width="3em"
               icon={faLinkedin}
               size="3x"
               className="mx-4 social-media-button"

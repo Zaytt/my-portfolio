@@ -150,12 +150,12 @@ export default class Contact extends Component {
                         onChange={this.onChange}
                       />
                       <span className="icon is-small is-left">
-                        <FontAwesomeIcon width="0" icon={faUser} />
+                        <FontAwesomeIcon width="1em" icon={faUser} />
                       </span>
                       {errors.name && (
                         <span className="icon is-small is-right">
                           <FontAwesomeIcon
-                            width="0"
+                            width="1em"
                             icon={faExclamationTriangle}
                           />
                         </span>
@@ -177,12 +177,12 @@ export default class Contact extends Component {
                         onChange={this.onChange}
                       />
                       <span className="icon is-small is-left">
-                        <FontAwesomeIcon width="0" icon={faEnvelope} />
+                        <FontAwesomeIcon width="1em" icon={faEnvelope} />
                       </span>
                       {errors.email && (
                         <span className="icon is-small is-right">
                           <FontAwesomeIcon
-                            width="0"
+                            width="1em"
                             icon={faExclamationTriangle}
                           />
                         </span>
@@ -240,7 +240,7 @@ export default class Contact extends Component {
                       }`}
                     >
                       <FontAwesomeIcon
-                        width="0"
+                        width="1em"
                         icon={buttonIcon}
                         className="mr-2"
                       />
