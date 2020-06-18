@@ -53,24 +53,24 @@ export default function About() {
 
                 <div className="mt-5">
                   <Link
-                    className="has-text-white"
+                    className="has-text-white "
                     to="contact"
                     smooth={true}
                     offset={-75}
                     duration={700}
                   >
-                    <button className="button is-info mr-2 has-text-weight-semibold">
+                    <button className="button is-info mr-2 has-text-weight-semibold is-fullwidth-mobile">
                       CONTACT ME
                     </button>
                   </Link>
                   <Link
-                    className="has-text-white"
+                    className="has-text-white "
                     to="portfolio"
                     smooth={true}
                     offset={-120}
                     duration={700}
                   >
-                    <button className="button is-outlined is-danger has-text-weight-semibold">
+                    <button className="button is-outlined is-danger has-text-weight-semibold is-fullwidth-mobile">
                       SEE PORTFOLIO
                     </button>
                   </Link>
