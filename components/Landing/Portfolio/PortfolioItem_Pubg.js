@@ -95,7 +95,7 @@ export default function PortfolioItem({}) {
               <span className="has-text-weight-semibold is-size-6">
                 Built with:
               </span>
-              <div className="has-text-centered container is-vertical-center">
+              <div className="has-text-centered container is-vertical-center mt-3">
                 <div className="columns is-mobile is-multiline is-aligned-bottom">
                   <div className="column mx-1 ">
                     <a
@@ -125,7 +125,7 @@ export default function PortfolioItem({}) {
                       target="_blank"
                       className="underlined-on-hover"
                     >
-                      <NextJSLogo width={72} height={72} />
+                      <NextJSLogo width={72} height={45} />
                     </a>
                   </div>
                   <div className="column mx-1 ">

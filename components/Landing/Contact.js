@@ -136,7 +136,7 @@ export default class Contact extends Component {
           </div>
           <Slide right delay={900} duration={900}>
             <div className="columns is-centered mt-5">
-              <div className="column is-narrow is-two-fifths-desktop is-half-tablet">
+              <div className="column is-narrow is-one-third-fullhd is-two-fifths-desktop is-half-tablet">
                 <form onSubmit={this.onSubmit}>
                   <div className="field">
                     <label className="label has-text-white">Name</label>

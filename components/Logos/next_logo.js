@@ -2,7 +2,12 @@ import React from 'react';
 
 export default function next_logo({ width, height }) {
   return (
-    <svg width={width} height={height} viewBox="0 0 220 50">
+    <svg
+      width={width}
+      height={height}
+      viewBox="0 0 220  120"
+      preserveAspectRatio="xMaxYMax"
+    >
       <title>next-black</title>
       <desc>Created with Sketch.</desc>
       <defs></defs>
