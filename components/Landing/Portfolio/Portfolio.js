@@ -8,7 +8,7 @@ export default function Portfolio() {
     <section id="portfolio">
       <div className="container is-fluid mb-6 pb-6">
         <div className="has-text-centered mb-6">
-          <h1 className="title has-text-weight-semibold">
+          <h1 className="title has-text-weight-semibold mb-6">
             <span className="underline-bold">PORTFOLIO</span>
           </h1>
         </div>

@@ -3,22 +3,103 @@ import Slide from 'react-reveal/Slide';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import { sendEmail } from '../../actions/contactActions';
+import { validateMessage } from '../../utils/validateContactData';
 
 export default class Contact extends Component {
   state = {
     name: '',
     email: '',
     subject: 'app',
+    subjectText: 'Hello Ivan, I want you to make an app for me',
     message: '',
+    loading: false,
+    emailSent: false,
+    emailError: false,
+    errors: {},
   };
 
   onChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
+    if (e.target.name === 'subject') {
+      this.setState({
+        [e.target.name]: e.target.value,
+        subjectText: e.target.selectedOptions[0].text,
+        errors: {
+          ...this.state.errors,
+          [e.target.name]: '',
+        },
+      });
+    } else {
+      this.setState({
+        [e.target.name]: e.target.value,
+        errors: {
+          ...this.state.errors,
+          [e.target.name]: '',
+        },
+      });
+    }
+  };
+
+  onSubmit = async (e) => {
+    e.preventDefault();
+    const { name, email, subjectText, message } = this.state;
+    const validation = validateMessage(name, email, message);
+
+    // Validate message fields
+    if (!validation.isValid) {
+      this.setState({
+        errors: { ...validation.errors },
+      });
+      return;
+    }
+
+    // If app is still processing an email, return
+    if (this.state.loading) return;
+
+    this.setState({ errors: {}, loading: true }, async () => {
+      const res = await sendEmail(name, email, subjectText, message);
+
+      if (res.success) {
+        this.setState({ emailSent: true, loading: false });
+      } else {
+        this.setState({
+          emailSent: true,
+          emailError: true,
+          loading: false,
+          errors: { ...res.errors },
+        });
+      }
+    });
   };
 
   render() {
-    const { name, email, subject, message } = this.state;
+    const {
+      name,
+      email,
+      subject,
+      message,
+      emailSent,
+      emailError,
+      loading,
+      errors,
+    } = this.state;
+    let buttonText = 'SEND IT';
+    let buttonIcon = faPaperPlane;
+
+    if (emailSent) {
+      if (emailError) {
+        buttonText = 'SOMETHING HAPPENED';
+        buttonIcon = faTimes;
+      } else {
+        buttonText = 'MESSAGE SENT';
+        buttonIcon = faCheck;
+      }
+    }
+
     return (
       <section className="has-background-dark py-6" id="contact">
         <div className="container is-fluid">
@@ -49,49 +130,66 @@ export default class Contact extends Component {
                   together
                 </span>
                 ?
+                <br />
               </h2>
             </Slide>
           </div>
           <Slide right delay={900} duration={900}>
             <div className="columns is-centered mt-5">
               <div className="column is-narrow is-two-fifths-desktop is-half-tablet">
-                <form>
-                  <div class="field">
-                    <label class="label has-text-white">Name</label>
-                    <div class="control has-icons-left">
+                <form onSubmit={this.onSubmit}>
+                  <div className="field">
+                    <label className="label has-text-white">Name</label>
+                    <div className="control has-icons-left has-icons-right">
                       <input
-                        class="input"
+                        className="input"
                         type="text"
                         placeholder="Your Name"
                         name="name"
                         value={name}
                         onChange={this.onChange}
                       />
-                      <span class="icon is-small is-left">
+                      <span className="icon is-small is-left">
                         <FontAwesomeIcon icon={faUser} />
                       </span>
+                      {errors.name && (
+                        <span className="icon is-small is-right">
+                          <FontAwesomeIcon icon={faExclamationTriangle} />
+                        </span>
+                      )}
                     </div>
+                    {errors.name && (
+                      <p className="help is-danger">{errors.name}</p>
+                    )}
                   </div>
-                  <div class="field">
-                    <label class="label has-text-white">Email</label>
-                    <div class="control has-icons-left ">
+                  <div className="field">
+                    <label className="label has-text-white">Email</label>
+                    <div className="control has-icons-left has-icons-right">
                       <input
-                        class="input"
+                        className="input"
                         type="text"
                         placeholder="Your Email"
                         name="email"
                         value={email}
                         onChange={this.onChange}
                       />
-                      <span class="icon is-small is-left">
+                      <span className="icon is-small is-left">
                         <FontAwesomeIcon icon={faEnvelope} />
                       </span>
+                      {errors.email && (
+                        <span className="icon is-small is-right">
+                          <FontAwesomeIcon icon={faExclamationTriangle} />
+                        </span>
+                      )}
                     </div>
+                    {errors.email && (
+                      <p className="help is-danger">{errors.email}</p>
+                    )}
                   </div>
-                  <div class="field">
-                    <label class="label has-text-white">Subject</label>
-                    <div class="control">
-                      <div class="select is-fullwidth">
+                  <div className="field">
+                    <label className="label has-text-white">Subject</label>
+                    <div className="control">
+                      <div className="select is-fullwidth">
                         <select
                           name="subject"
                           onChange={this.onChange}
@@ -112,22 +210,31 @@ export default class Contact extends Component {
                     </div>
                   </div>
 
-                  <div class="field">
-                    <label class="label has-text-white">Message</label>
-                    <div class="control">
+                  <div className="field">
+                    <label className="label has-text-white">Message</label>
+                    <div className="control">
                       <textarea
-                        class="textarea"
+                        className="textarea"
                         placeholder="Your Message"
                         name="message"
                         value={message}
                         onChange={this.onChange}
                       ></textarea>
                     </div>
+                    {errors.message && (
+                      <p className="help is-danger">{errors.message}</p>
+                    )}
                   </div>
-                  <div class="control has-text-centered mb-6 pb-5">
-                    <button class="button is-danger has-text-weight-semibold mt-5  is-fullwidth">
-                      <FontAwesomeIcon icon={faPaperPlane} className="mr-2" />
-                      SEND IT
+                  <div className="control has-text-centered mb-6 pb-5">
+                    <button
+                      // disabled={emailSent ? true : false}
+                      type="submit"
+                      className={`button is-danger has-text-weight-semibold mt-5 is-fullwidth ${
+                        loading ? 'is-loading' : ''
+                      }`}
+                    >
+                      <FontAwesomeIcon icon={buttonIcon} className="mr-2" />
+                      {buttonText}
                     </button>
                   </div>
                 </form>

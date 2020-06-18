@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Ivan Chavez Portfolio page, built with Next.js & Bulma",
   "scripts": {
-    "dev": "next",
+    "dev": "node server.js",
     "build": "next build",
-    "start": "next start",
+    "start": "NODE_ENV=production node server.js",
     "export": "next export",
     "prettier": "prettier --write '**/*.js{x,}'"
   },
@@ -17,12 +17,16 @@
     "@svgr/webpack": "^5.4.0",
     "@zeit/next-sass": "^1.0.1",
     "animate.css": "^4.1.0",
+    "axios": "^0.19.2",
     "bulma": "^0.9.0",
     "bulma-divider": "^0.2.0",
     "classnames": "^2.2.6",
+    "dotenv": "^8.2.0",
+    "dotenv-webpack": "^1.8.0",
     "lodash": "^4.17.15",
     "next": "^8.1.0",
     "node-sass": "^4.12.0",
+    "nodemailer": "^6.4.8",
     "nprogress": "^0.2.0",
     "prop-types": "^15.7.2",
     "react": "^16.10.1",
@@ -30,7 +34,8 @@
     "react-dom": "^16.8.6",
     "react-reveal": "^1.2.2",
     "react-scroll": "^1.7.16",
-    "styled-jsx-plugin-sass": "^1.0.0"
+    "styled-jsx-plugin-sass": "^1.0.0",
+    "validator": "^13.1.1"
   },
   "devDependencies": {
     "babel-plugin-module-resolver": "^3.2.0",

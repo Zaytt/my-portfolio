@@ -34,7 +34,7 @@ export default function PortfolioItem({}) {
 
           <div className="column is-half-desktop is-narrow">
             {/* <Fade right> */}
-            <div className="container has-text-weight-normal has-text-centered-mobile pt-3 pr-4">
+            <div className="container is-fluid has-text-weight-normal has-text-centered-mobile pt-3 pr-4">
               <h1 className="is-size-3 has-text-left-desktop has-text-centeredhas-text-weight-semibold mb-2">
                 MYPUBGSQUAD
                 <span className="has-text-right">
@@ -60,7 +60,7 @@ export default function PortfolioItem({}) {
                   mypubgsquad.com
                 </span>{' '}
                 is a webite that provides information regarding a player's
-                statistics inside the popular game{' '}
+                statistics for the popular game{' '}
                 <a
                   href="https://www.pubg.com/"
                   target="_blank"

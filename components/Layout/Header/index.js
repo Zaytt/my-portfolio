@@ -25,7 +25,7 @@ export default function Navbar() {
               duration={700}
             >
               <div
-                class="navbar-item has-text-weight-semibold is-size-4"
+                className="navbar-item has-text-weight-semibold is-size-4"
                 href="#home"
               >
                 <span className="has-text-danger">{`{ `}</span>{' '}
@@ -38,7 +38,7 @@ export default function Navbar() {
 
           <a
             role="button"
-            class="navbar-burger burger"
+            className="navbar-burger burger"
             aria-label="menu"
             aria-expanded="false"
             data-target="navbarMenu"
@@ -61,7 +61,7 @@ export default function Navbar() {
           <div className="navbar-end has-background-black-ter is-dark">
             <span className="navbar-item ">
               <Link
-                // activeClass="navbar-item-active"
+                activeClass="navbar-item-active"
                 className="has-text-white"
                 to="about"
                 spy={true}
@@ -74,7 +74,7 @@ export default function Navbar() {
             </span>
             <span className="navbar-item ">
               <Link
-                // activeClass="navbar-item-active"
+                activeClass="navbar-item-active"
                 className="has-text-white"
                 to="whatido"
                 spy={true}
@@ -87,7 +87,7 @@ export default function Navbar() {
             </span>
             <span className="navbar-item ">
               <Link
-                // activeClass="navbar-item-active"
+                activeClass="navbar-item-active"
                 className="has-text-white"
                 to="portfolio"
                 spy={true}
@@ -100,7 +100,7 @@ export default function Navbar() {
             </span>
             <span className="navbar-item ">
               <Link
-                // activeClass="navbar-item-active"
+                activeClass="navbar-item-active"
                 className="has-text-white"
                 to="contact"
                 spy={true}

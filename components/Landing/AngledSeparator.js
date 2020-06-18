@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function AngledSeparator() {
   return (
-    <div className="has-background-dark mt-6 pb-6">
+    <div className="has-background-dark">
       <svg
         preserveAspectRatio="none"
         viewBox="0 0 100 102"

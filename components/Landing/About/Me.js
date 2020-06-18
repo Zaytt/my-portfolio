@@ -51,7 +51,7 @@ export default function About() {
                   and <span className="has-text-weight-semibold">Node.js.</span>
                 </p>
 
-                <div class="mt-5">
+                <div className="mt-5">
                   <Link
                     className="has-text-white"
                     to="contact"
@@ -59,7 +59,7 @@ export default function About() {
                     offset={-75}
                     duration={700}
                   >
-                    <button class="button is-info mr-2 has-text-weight-semibold">
+                    <button className="button is-info mr-2 has-text-weight-semibold">
                       CONTACT ME
                     </button>
                   </Link>
@@ -70,7 +70,7 @@ export default function About() {
                     offset={-120}
                     duration={700}
                   >
-                    <button class="button is-outlined is-danger has-text-weight-semibold">
+                    <button className="button is-outlined is-danger has-text-weight-semibold">
                       SEE PORTFOLIO
                     </button>
                   </Link>
