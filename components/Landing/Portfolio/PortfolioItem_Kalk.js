@@ -40,7 +40,7 @@ export default function PortfolioItem({}) {
                 <span className="has-text-right">
                   <a href="http://www.mypubgsquad.com" target="_blank">
                     <FontAwesomeIcon
-                      width="1em"
+                      width="0"
                       icon={faExternalLinkAlt}
                       className="ml-3 px-1 social-media-button2"
                     />
@@ -50,7 +50,7 @@ export default function PortfolioItem({}) {
                     target="_blank"
                   >
                     <FontAwesomeIcon
-                      width="1em"
+                      width="0"
                       icon={faGithub}
                       className="mx-2 px-1 social-media-button2"
                     />
