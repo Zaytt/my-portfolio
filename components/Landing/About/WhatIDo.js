@@ -8,41 +8,36 @@ export default function WhatIDo() {
   const frontEndText = (
     <React.Fragment>
       Dynamic, responsive and fast user interfaces using{' '}
-      <span className="has-text-primary-medium has-text-weight-semibold">
-        React.js
-      </span>
-      , Redux, Bootstrap and Bulma.
+      <span className="has-text-weight-semibold">React.js</span>,{' '}
+      <span className="has-text-weight-semibold">Redux</span>,{' '}
+      <span className="has-text-weight-semibold">Bootstrap</span> and{' '}
+      <span className=" has-text-weight-semibold">Bulma</span>.
     </React.Fragment>
   );
 
   const backEndText = (
     <React.Fragment>
       Solid business logic to power your applications using{' '}
-      <span className="has-text-danger-medium has-text-weight-semibold">
-        Node.js
-      </span>{' '}
-      and MongoDB or MySQL.
+      <span className="has-text-weight-semibold">Node.js</span> and{' '}
+      <span className="has-text-weight-semibold">MongoDB</span> or{' '}
+      <span className="has-text-weight-semibold">MySQL</span>.
     </React.Fragment>
   );
 
   const apiText = (
     <React.Fragment>
-      RESTful API building with Java or{' '}
-      <span className="has-text-danger-medium has-text-weight-semibold">
-        Express.js
-      </span>{' '}
-      .
+      RESTful API building with{' '}
+      <span className=" has-text-weight-semibold">Java</span> or{' '}
+      <span className=" has-text-weight-semibold">Express.js</span>.
     </React.Fragment>
   );
 
   const cloudText = (
     <React.Fragment>
       Deployment of web applications and databases to leading cloud platforms
-      such as Heroku, Digital Ocean and{' '}
-      <span className="has-text-primary-medium has-text-weight-semibold">
-        Amazon AWS
-      </span>
-      .
+      such as <span className=" has-text-weight-semibold">Heroku</span>,{' '}
+      <span className=" has-text-weight-semibold">Digital Ocean</span> and{' '}
+      <span className=" has-text-weight-semibold">Amazon AWS</span>.
     </React.Fragment>
   );
 

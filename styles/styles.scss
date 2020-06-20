@@ -1,6 +1,7 @@
 @import './theme';
 @import '~bulma-divider';
 @import '~@fortawesome/fontawesome-svg-core/styles';
+// @import '~hamburgers';
 
 .full-width {
   width: 100%;
@@ -74,6 +75,27 @@
 }
 .underlined-on-hover:hover {
   border-bottom: 2px solid rgb(240, 70, 104);
+}
+
+@include until($tablet) {
+  .navbar-menu {
+    display: block;
+    opacity: 0;
+
+    position: absolute; /* or float: left; width: 100%;*/
+    left: 0;
+    right: 0;
+
+    transform: translateY(-20%);
+    transition: all 0.333s ease;
+    pointer-events: none;
+  }
+
+  .navbar-menu.is-active {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
 }
 
 @media screen and (max-width: 768px), print {

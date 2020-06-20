@@ -38,7 +38,7 @@ export default function Navbar() {
 
           <a
             role="button"
-            className="navbar-burger burger "
+            className={`navbar-burger burger ${isActive ? 'is-active ' : ''} `}
             aria-label="menu"
             aria-expanded="false"
             data-target="navbarMenu"
@@ -54,9 +54,10 @@ export default function Navbar() {
 
         <div
           className={`navbar-menu has-background-black-ter ${
-            isActive ? 'is-active' : ''
+            isActive ? 'is-active ' : ''
           }`}
           id="navbarMenu"
+          style={navBarStyle}
         >
           <div className="navbar-end has-background-black-ter is-dark">
             <span className="navbar-item ">
