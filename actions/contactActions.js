@@ -7,6 +7,11 @@ export async function sendEmail(name, email, subject, message) {
       return res.data;
     })
     .catch((err) => {
-      return err.response.data;
+      return {
+        success: false,
+        status: err.response.status,
+        statusText: err.response.statusText,
+        data: err.response.data,
+      };
     });
 }

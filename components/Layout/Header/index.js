@@ -57,7 +57,7 @@ export default function Navbar() {
             isActive ? 'is-active ' : ''
           }`}
           id="navbarMenu"
-          style={navBarStyle}
+          style={isActive ? navBarStyle : {}}
         >
           <div className="navbar-end has-background-black-ter is-dark">
             <span className="navbar-item ">

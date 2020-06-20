@@ -69,8 +69,10 @@ export default class Contact extends Component {
         this.setState({
           emailSent: true,
           emailError: true,
+          emailErrorText:
+            res.status === 429 ? 'TOO MANY MESSAGES' : 'SOMETHING HAPPENED',
           loading: false,
-          errors: { ...res.errors },
+          errors: { ...res.data.errors },
         });
       }
     });
@@ -84,6 +86,7 @@ export default class Contact extends Component {
       message,
       emailSent,
       emailError,
+      emailErrorText,
       loading,
       errors,
     } = this.state;
@@ -92,7 +95,7 @@ export default class Contact extends Component {
 
     if (emailSent) {
       if (emailError) {
-        buttonText = 'SOMETHING HAPPENED';
+        buttonText = emailErrorText;
         buttonIcon = faTimes;
       } else {
         buttonText = 'MESSAGE SENT';
@@ -233,7 +236,7 @@ export default class Contact extends Component {
                   </div>
                   <div className="control has-text-centered mb-6 pb-5">
                     <button
-                      // disabled={emailSent ? true : false}
+                      disabled={emailError ? true : false}
                       type="submit"
                       className={`button is-danger has-text-weight-semibold mt-5 is-fullwidth ${
                         loading ? 'is-loading' : ''
