@@ -28,6 +28,8 @@ export default class Contact extends Component {
       this.setState({
         [e.target.name]: e.target.value,
         subjectText: e.target.selectedOptions[0].text,
+        emailSent: false,
+        // emailError: false,
         errors: {
           ...this.state.errors,
           [e.target.name]: '',
@@ -36,6 +38,8 @@ export default class Contact extends Component {
     } else {
       this.setState({
         [e.target.name]: e.target.value,
+        emailSent: false,
+        // emailError: false,
         errors: {
           ...this.state.errors,
           [e.target.name]: '',
