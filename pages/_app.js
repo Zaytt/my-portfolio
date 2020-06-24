@@ -31,7 +31,7 @@ class MyApp extends App {
     return (
       <Container>
         <Head>
-          <title>Ivan Chavez | Full-Stack Developer</title>
+          <title>{`Ivan Chavez - Full Stack Web Developer | Node & React`}</title>
         </Head>
         <Layout>
           <Component {...pageProps} />

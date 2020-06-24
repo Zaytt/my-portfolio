@@ -11,6 +11,48 @@ export default class MyDocument extends Document {
       <html>
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
+          {/* <!-- Primary Meta Tags --> */}
+          <meta
+            name="title"
+            content={`Ivan Chavez - Full Stack Web Developer using Node & React`}
+          />
+          <meta
+            name="description"
+            content="I'm a full stack web developer that focuses on building single page application using then MERN stack (MongoDB, Express, React, Node). "
+          />
+
+          {/* <!-- Open Graph / Facebook --> */}
+          <meta property="og:type" content="website" />
+          <meta property="og:url" content="https://ivanchavez.dev" />
+          <meta
+            property="og:title"
+            content={`Ivan Chavez - Full Stack Web Developer using Node & React`}
+          />
+          <meta
+            property="og:description"
+            content="I'm a full stack web developer that focuses on building single page application using then MERN stack (MongoDB, Express, React, Node). "
+          />
+          <meta
+            property="og:image"
+            content="https://ivanchavez.dev/static/assets/meta-image.png"
+          />
+
+          {/* <!-- Twitter --> */}
+          <meta property="twitter:card" content="summary_large_image" />
+          <meta property="twitter:url" content="https://ivanchavez.dev" />
+          <meta
+            property="twitter:title"
+            content={`Ivan Chavez - Full Stack Web Developer using Node & React`}
+          />
+          <meta
+            property="twitter:description"
+            content="I'm a full stack web developer that focuses on building single page application using then MERN stack (MongoDB, Express, React, Node). "
+          />
+          <meta
+            property="twitter:image"
+            content="https://ivanchavez.dev/static/assets/meta-image.png"
+          />
+
           <link
             rel="apple-touch-icon"
             sizes="180x180"
