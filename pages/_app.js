@@ -1,4 +1,4 @@
-import App, { Container } from 'next/app';
+import App from 'next/app';
 import Head from 'next/head';
 import React from 'react';
 import NProgress from 'nprogress';
@@ -29,14 +29,15 @@ class MyApp extends App {
   render() {
     const { Component, pageProps } = this.props;
     return (
-      <Container>
+      <React.Fragment>
         <Head>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
           <title>{`Ivan Chavez - Full Stack Web Developer | Node & React`}</title>
         </Head>
         <Layout>
           <Component {...pageProps} />
         </Layout>
-      </Container>
+      </React.Fragment>
     );
   }
 }

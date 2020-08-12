@@ -9,7 +9,7 @@ export default function About() {
         <div className="column has-text-right has-text-centered-mobile is-half-tablet is-one-third">
           <Fade left>
             {/* <figure className="image has-text-centered"> */}
-            <img src="/static/assets/me/me.jpg" style={imgStyle} />
+            <img src="/assets/me/me.jpg" style={imgStyle} />
             {/* </figure> */}
           </Fade>
         </div>

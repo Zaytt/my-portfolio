@@ -10,7 +10,6 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
           {/* <!-- Primary Meta Tags --> */}
           <meta
             name="title"
@@ -34,7 +33,7 @@ export default class MyDocument extends Document {
           />
           <meta
             property="og:image"
-            content="https://ivanchavez.dev/static/assets/meta-image.png"
+            content="https://ivanchavez.dev/assets/meta-image.png"
           />
 
           {/* <!-- Twitter --> */}
@@ -50,27 +49,27 @@ export default class MyDocument extends Document {
           />
           <meta
             property="twitter:image"
-            content="https://ivanchavez.dev/static/assets/meta-image.png"
+            content="https://ivanchavez.dev/assets/meta-image.png"
           />
 
           <link
             rel="apple-touch-icon"
             sizes="180x180"
-            href="/static/assets/apple-touch-icon.png"
+            href="/assets/apple-touch-icon.png"
           />
           <link
             rel="icon"
             type="image/png"
             sizes="32x32"
-            href="/static/assets/favicon-32x32.png"
+            href="/assets/favicon-32x32.png"
           />
           <link
             rel="icon"
             type="image/png"
             sizes="16x16"
-            href="/static/assets/favicon-16x16.png"
+            href="/assets/favicon-16x16.png"
           />
-          <link rel="manifest" href="/static/assets/site.webmanifest" />
+          <link rel="manifest" href="/assets/site.webmanifest" />
         </Head>
         <body>
           <Main />

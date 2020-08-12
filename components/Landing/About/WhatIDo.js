@@ -59,7 +59,7 @@ export default function WhatIDo() {
           <Fade delay={0} duration={960}>
             <div className="column is-one-quarter has-text-centered">
               <SkillCard
-                icon="/static/assets/icons/server_100.png"
+                icon="/assets/icons/server_100.png"
                 title="Back-End Development"
                 text={backEndText}
               />
@@ -69,7 +69,7 @@ export default function WhatIDo() {
           <Fade delay={isMobile ? 0 : 360} duration={960}>
             <div className="column is-one-quarter has-text-centered">
               <SkillCard
-                icon="/static/assets/icons/coding_100x100.png"
+                icon="/assets/icons/coding_100x100.png"
                 title="Front-End Programming"
                 text={frontEndText}
               />
@@ -80,7 +80,7 @@ export default function WhatIDo() {
               <SkillCard
                 title={`API Development`}
                 text={apiText}
-                icon="/static/assets/icons/api_100.png"
+                icon="/assets/icons/api_100.png"
               />
             </div>
           </Fade>
@@ -88,7 +88,7 @@ export default function WhatIDo() {
             <div className="column is-one-quarter has-text-centered">
               <SkillCard
                 title="Cloud Integration"
-                icon="/static/assets/icons/cloud_100.png"
+                icon="/assets/icons/cloud_100.png"
                 text={cloudText}
               />
             </div>

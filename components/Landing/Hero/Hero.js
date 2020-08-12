@@ -12,20 +12,20 @@ export default function Hero() {
       <div className="hero-body pt-0">
         <div className="container has-text-white">
           <h1
-            className="has-text-weight-light is-size-1-mobile"
+            className="has-text-weight-normal is-size-1-mobile"
             style={{ fontSize: '72px' }}
           >
             Hello,
           </h1>
           <h1
-            className="has-text-weight-light is-size-1-mobile"
+            className="has-text-weight-normal is-size-1-mobile"
             style={{ fontSize: '76px' }}
           >
             I'm{' '}
             <span className="has-text-primary has-text-weight-bold">Ivan</span>,
           </h1>
           <h1
-            className="has-text-weight-light is-size-2-mobile"
+            className="has-text-weight-normal is-size-2-mobile"
             style={{ fontSize: '72px' }}
           >
             a Full-Stack Web{' '}

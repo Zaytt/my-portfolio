@@ -24,7 +24,7 @@
           "components": "./components",
           "screens": "./screens",
           "styles": "./styles",
-          "assets": "./static/assets"
+          "assets": "./public/assets"
         }
       }
     ]

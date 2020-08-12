@@ -23,10 +23,7 @@ export default function PortfolioItem({}) {
             <a href="http://www.mypubgsquad.com" target="_blank">
               {/* <Fade left> */}
               <figure className="image image is-3by2">
-                <img
-                  src="/static/assets/portfolio/mypubgsquad.png"
-                  style={imgStyle}
-                />
+                <img src="/assets/portfolio/mypubgsquad.png" style={imgStyle} />
               </figure>
               {/* </Fade> */}
             </a>

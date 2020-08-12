@@ -1,7 +1,6 @@
 @import './theme';
 @import '~bulma-divider';
 @import '~@fortawesome/fontawesome-svg-core/styles';
-// @import '~hamburgers';
 
 .full-width {
   width: 100%;
@@ -30,13 +29,37 @@
   color: lightseagreen;
 }
 
+#home {
+  background: url('/assets/hero/home.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .sticky-navbar {
   position: sticky;
   top: 0;
 }
 
+.navbar-item {
+  cursor: pointer;
+}
+
+.navbar-item-text:hover {
+  color: lightgray;
+}
+
 .navbar-item-active {
   border-bottom: 1px solid rgb(240, 70, 104);
+}
+
+.navbar-separator {
+  border-left: 1px solid rgb(240, 70, 104);
+  margin-top: 25px;
+  margin-bottom: 25px;
+  margin-left: 5px;
+  margin-right: 5px;
 }
 
 .social-media-button {
@@ -68,7 +91,7 @@
 
 .is-aligned-bottom {
   display: flex;
-  align-items: end;
+  align-items: flex-end;
 }
 
 .underlined-on-hover {
