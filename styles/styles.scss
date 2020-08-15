@@ -37,6 +37,33 @@
   background-size: cover;
 }
 
+#blog {
+  background: url('/assets/hero/blog.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.card {
+  border-radius: 5px;
+}
+
+.post-card-image {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.top-tag {
+  cursor: pointer;
+}
+
+.top-tag:hover {
+  cursor: pointer;
+  background-color: #feecf0;
+  color: #cc0f35;
+}
+
 .sticky-navbar {
   position: sticky;
   top: 0;

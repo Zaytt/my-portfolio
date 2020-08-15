@@ -3,9 +3,11 @@ import Head from 'next/head';
 import React from 'react';
 import NProgress from 'nprogress';
 import Router, { withRouter } from 'next/router';
+
 import Layout from 'components/Layout';
 import 'styles/styles.scss';
 import 'animate.css/animate.min.css';
+import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 
 // ------ Stuff that makes font-awesome icons not jump out of place when loading
 import { config } from '@fortawesome/fontawesome-svg-core';

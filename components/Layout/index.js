@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { withRouter } from 'next/router';
-
 import _ from 'lodash';
 import Header from 'components/Layout/Header';
 import Footer from 'components/Layout/Footer';
@@ -33,7 +31,7 @@ class Layout extends Component {
     const { router, children } = this.props;
     return (
       <React.Fragment>
-        {router.pathname === '/' ? null : <Header />}
+        {/* <Header /> */}
         {children}
         <Footer />
       </React.Fragment>
@@ -41,4 +39,4 @@ class Layout extends Component {
   }
 }
 
-export default withRouter(Layout);
+export default Layout;
