@@ -1,11 +1,17 @@
 import React, { useEffect } from 'react';
 import PostCard from './PostCard';
 import Loader from 'react-loader-spinner';
-import { useBlog } from '../../context/blogContext';
+import { useBlog } from '../../../context/blogContext';
 
 export default function PostsList() {
   // Get the required values from the BlogContext
-  const { posts, selectedTag, page, getPosts, loadingPosts } = useBlog();
+  const {
+    posts,
+    selectedTag,
+    selectedPage,
+    getPosts,
+    loadingPosts,
+  } = useBlog();
 
   /* The use effect hook is similar to the life cycle methods 'componentDidMount' 
   and 'componentDidUpdate'. It runs both after the first render and after every update. 
@@ -18,11 +24,11 @@ export default function PostsList() {
     setTimeout(() => {
       getPosts();
     }, 333);
-  }, [selectedTag, page]);
+  }, [selectedTag, selectedPage]);
 
   // Configure the loader spinner
   const loaderSpinner = (
-    <div className="has-text-centered is-fullheight">
+    <div className="has-text-centered half-height">
       <Loader
         type="ThreeDots"
         color="lightseagreen"
@@ -48,6 +54,13 @@ export default function PostsList() {
   const postTiles = (
     <div className="tile is-ancestor" style={{ flexWrap: 'wrap' }}>
       {postCards}
+    </div>
+  );
+
+  // Return a message informing that no posts were found
+  const noPostsFound = (
+    <div className="half-height flex-vertical-center">
+      <h1 className="title is-2 has-text-centered">No Posts Found</h1>
     </div>
   );
 

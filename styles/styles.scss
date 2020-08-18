@@ -11,6 +11,10 @@
 .full-height-min {
   min-height: 100vh;
 }
+
+.half-height {
+  height: 50vh;
+}
 .text-center {
   text-align: center;
 }
@@ -27,6 +31,10 @@
 
 .has-text-primary-medium {
   color: lightseagreen;
+}
+
+.clickable {
+  cursor: pointer;
 }
 
 #home {

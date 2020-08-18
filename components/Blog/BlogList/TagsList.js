@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import Tag from './Tag';
-import { useBlog } from '../../context/blogContext';
+import { useBlog } from '../../../context/blogContext';
 
 export default function TagsList() {
   // Get the values that we will use from the BlogContext

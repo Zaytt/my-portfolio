@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import Butter from 'buttercms';
-
-const butter = Butter('YOUR_BUTTERCMS_KEY');
+import { getBlogPosts, getBlogTags } from '../actions/blogActions';
 
 const BlogContext = React.createContext();
 
@@ -27,7 +25,7 @@ export function BlogProvider(props) {
    * @param {String} tag
    */
 
-  function setTag(tag) {
+  async function setTag(tag) {
     setSelectedTag(tag);
     setLoadingPosts(true);
   }
@@ -38,7 +36,7 @@ export function BlogProvider(props) {
    * @param {Number} page
    */
 
-  function setPage(page) {
+  async function setPage(page) {
     setSelectedPage(page);
     setLoadingPosts(true);
   }
@@ -52,19 +50,18 @@ export function BlogProvider(props) {
    * @returns {Array<{Object}>} An array of Objects containing the Posts
    */
 
-  async function getPosts(page = 1, pageSize = 9) {
-    const params = { page: page, page_size: pageSize };
-    if (selectedTag !== 'all') params.tag_slug = selectedTag;
+  async function getPosts(pageSize = 9) {
+    const tag = selectedTag !== 'all' ? selectedTag : null;
 
-    const res = await butter.post.list(params);
-    console.log(res.data.meta.count);
+    const res = await getBlogPosts(tag, selectedPage);
+
     setLoadingPosts(false);
-    setPosts(res.data.data);
-    setPostCount(res.data.meta.count);
-    setNextPage(res.data.meta.next_page);
-    setPreviousPage(res.data.meta.previous_page);
+    setPosts(res.data);
+    setPostCount(res.meta.count);
+    setNextPage(res.meta.next_page);
+    setPreviousPage(res.meta.previous_page);
 
-    return res.data.data;
+    return res.data;
   }
 
   /**
@@ -73,11 +70,17 @@ export function BlogProvider(props) {
    * @returns {Array<{Object}>} An array of Objects containing the Tags
    */
   async function getAllTags() {
-    const res = await butter.tag.list();
-    const allTag = { name: 'All', slug: 'all' };
-    setTags([allTag, ...res.data.data]);
+    try {
+      const tags = await getBlogTags();
+      console.log(tags);
+      const allTag = { name: 'All', slug: 'all' };
+      setTags([allTag, ...tags]);
 
-    return res.data.data;
+      return [allTag, ...tags];
+    } catch (error) {
+      setTags([]);
+      return error;
+    }
   }
 
   // Use a memo to store the values.

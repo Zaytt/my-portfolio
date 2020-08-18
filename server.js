@@ -31,11 +31,14 @@ app.prepare().then(() => {
   });
 
   //  apply limiter to api requests
-  server.use('/api/', apiLimiter);
+  server.use('/api/contact/', apiLimiter);
 
   // Import routes
   const contactRoutes = require('./routes/contact');
+  const blogRoutes = require('./routes/blog');
+
   server.use('/api/contact', contactRoutes);
+  server.use('/api/blog', blogRoutes);
 
   server.get('*', handle);
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useBlog } from '../../context/blogContext';
+import { useBlog } from '../../../context/blogContext';
 
 export default function PaginationLink({ page }) {
   const { selectedPage } = useBlog();

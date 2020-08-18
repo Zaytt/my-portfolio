@@ -6,7 +6,6 @@ const { validateMessage } = require('../utils/validateContactData');
 router.post('/', async (req, res) => {
   const { name, email, subject, message } = req.body;
 
-  // return res.status(200).json({ success: true });
   // Validate the message fields
   const validate = validateMessage(name, email, message);
 

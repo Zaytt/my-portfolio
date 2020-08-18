@@ -1,6 +1,7 @@
 import React from 'react';
+import NextLink from 'next/link';
 import PaginationLink from './PaginationLink';
-import { useBlog } from '../../context/blogContext';
+import { useBlog } from '../../../context/blogContext';
 
 export default function Pagination() {
   const pageSize = 9;
@@ -45,15 +46,59 @@ export default function Pagination() {
   })();
 
   // Turn the pages array into a PaginationLink component array
-  const pagesLinks = paginationArray.map((page) => {
+  const pagesLinks = paginationArray.map((page, index) => {
     if (page === '...')
       return (
-        <li>
-          <span class="pagination-ellipsis">&hellip;</span>
+        <li key={index}>
+          <span className="pagination-ellipsis">&hellip;</span>
         </li>
       );
-    else return <PaginationLink page={page} />;
+    else return <PaginationLink key={index} page={page} />;
   });
+
+  const renderPreviousButton = () => {
+    if (previousPage) {
+      return (
+        <NextLink href={`blog?page=${previousPage}`}>
+          <a
+            className="pagination-previous ml-5"
+            disabled={previousPage === null}
+          >
+            Previous
+          </a>
+        </NextLink>
+      );
+    } else {
+      return (
+        <a
+          className="pagination-previous ml-5"
+          disabled={previousPage === null}
+        >
+          Previous
+        </a>
+      );
+    }
+  };
+
+  const renderNextButton = () => {
+    if (nextPage) {
+      return (
+        <NextLink href={`blog?page=${nextPage}`}>
+          <a className="pagination-next mr-5" disabled={nextPage === null}>
+            Next page
+          </a>
+        </NextLink>
+      );
+    } else {
+      return (
+        <a className="pagination-next mr-5" disabled={nextPage === null}>
+          Next page
+        </a>
+      );
+    }
+
+    return components;
+  };
 
   return (
     <div className="container">
@@ -62,15 +107,8 @@ export default function Pagination() {
         role="navigation"
         aria-label="pagination"
       >
-        <a
-          className="pagination-previous ml-5"
-          disabled={previousPage === null}
-        >
-          Previous
-        </a>
-        <a className="pagination-next mr-5" disabled={previousPage === null}>
-          Next page
-        </a>
+        {renderPreviousButton()}
+        {renderNextButton()}
         <ul className="pagination-list">{pagesLinks}</ul>
       </nav>
     </div>

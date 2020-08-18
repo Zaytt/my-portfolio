@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import NextLink from 'next/link';
 
 export default function PostCard({ post }) {
   // Map the tags of the array into an array of tag spans
@@ -19,18 +20,22 @@ export default function PostCard({ post }) {
   return (
     <div className="card">
       <div className="card-image">
-        <figure className="image is-4by3">
-          <img
-            className="post-card-image"
-            src={post.featured_image}
-            alt="Placeholder image"
-          />
-        </figure>
+        <NextLink href={`/blog/post/${post.url}`}>
+          <figure className="image is-4by3">
+            <img
+              className="post-card-image clickable"
+              src={post.featured_image}
+              alt="Placeholder image"
+            />
+          </figure>
+        </NextLink>
       </div>
       <div className="card-content">
         <div className="media">
           <div className="media-content">
-            <p className="title is-4">{post.seo_title}</p>
+            <NextLink href={`/blog/post/${post.url}`}>
+              <p className="title is-4 clickable">{post.seo_title}</p>
+            </NextLink>
           </div>
         </div>
 
