@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { getBlogPosts, getBlogTags } from '../actions/blogActions';
+import { set } from 'lodash';
 
 const BlogContext = React.createContext();
 
@@ -28,6 +29,7 @@ export function BlogProvider(props) {
 
   async function setTag(tag) {
     setSelectedTag(tag);
+    setSelectedPage(1);
     setLoadingPosts(true);
   }
 
@@ -57,23 +59,18 @@ export function BlogProvider(props) {
 
     const tag = selectedTag !== 'all' ? selectedTag : null;
 
+    // Get the blog posts from backend
     const res = await getBlogPosts(tag, selectedPage);
-    if (!res.error) {
-      setLoadingPosts(false);
-      setPosts(res.data);
-      setPostCount(res.meta.count);
-      setNextPage(res.meta.next_page);
-      setPreviousPage(res.meta.previous_page);
-      return res.data;
-    } else {
-      setLoadingPosts(false);
-      setPosts([]);
-      setPostCount(0);
-      setNextPage(null);
-      setPreviousPage(null);
-      setErrorMessage(res.message);
-      return res;
-    }
+
+    // Set provider values
+    setLoadingPosts(false);
+    setPosts(res.data.data);
+    setPostCount(res.data.meta.count);
+    setNextPage(res.data.meta.next_page);
+    setPreviousPage(res.data.meta.previous_page);
+    setErrorMessage(res.data.success ? null : res.message);
+
+    return res.data;
   }
 
   /**
@@ -84,7 +81,6 @@ export function BlogProvider(props) {
   async function getAllTags() {
     try {
       const tags = await getBlogTags();
-      console.log(tags);
       const allTag = { name: 'All', slug: 'all' };
       setTags([allTag, ...tags]);
 
@@ -106,6 +102,7 @@ export function BlogProvider(props) {
       postCount,
       nextPage,
       previousPage,
+      errorMessage,
       setTag,
       setPage,
       setLoadingPosts,
@@ -121,6 +118,7 @@ export function BlogProvider(props) {
     postCount,
     nextPage,
     previousPage,
+    errorMessage,
   ]);
 
   return <BlogContext.Provider value={value} {...props} />;

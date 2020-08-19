@@ -11,6 +11,7 @@ export default function PostsList() {
     selectedPage,
     getPosts,
     loadingPosts,
+    errorMessage,
   } = useBlog();
 
   /* The use effect hook is similar to the life cycle methods 'componentDidMount' 
@@ -39,8 +40,6 @@ export default function PostsList() {
     </div>
   );
 
-  console.log(posts);
-
   // Get an array of postCards
   const postCards = posts.map((post, index) => {
     return (
@@ -62,15 +61,14 @@ export default function PostsList() {
   // Return a message informing that no posts were found
   const noPostsFound = (
     <div className="half-height flex-vertical-center">
-      <h1 className="title is-2 has-text-centered">No Posts Found</h1>
+      <h1 className="title is-2 has-text-centered">
+        {errorMessage ? errorMessage : 'No posts found'}
+      </h1>
     </div>
   );
 
   return (
     <div className="container">
-      {/* <h1 className="title has-text-centered is-size-2">
-        {loadingPosts ? 'Loading...' : 'Posts'}
-      </h1> */}
       {loadingPosts
         ? loaderSpinner
         : posts.length > 0

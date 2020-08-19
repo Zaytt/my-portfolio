@@ -10,12 +10,8 @@ import axios from 'axios';
 export async function getBlogPosts(tag, page) {
   return await axios
     .get('/api/blog/posts', { params: { tag, page } })
-    .then((res) => {
-      return res.data;
-    })
-    .catch((error) => {
-      return error.response.data;
-    });
+    .then((res) => res.data)
+    .catch((error) => error.response.data);
 }
 
 /**

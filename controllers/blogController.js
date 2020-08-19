@@ -18,7 +18,12 @@ exports.getPosts = async (tag, page) => {
     // Get posts from ButterCMS
     const posts = await butter.post.list(params);
 
-    return posts.data;
+    const res = {
+      sucess: true,
+      data: posts.data,
+    };
+
+    return res;
   } catch (error) {
     return errorObject(error);
   }
@@ -55,9 +60,17 @@ function errorObject(error) {
   }
 
   return {
+    success: false,
     error: error.message,
     status: error.response.status,
     message,
-    data: error.response.data,
+    data: {
+      data: [],
+      meta: {
+        count: 0,
+        next_page: null,
+        previous_page: null,
+      },
+    },
   };
 }

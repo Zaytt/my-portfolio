@@ -13,7 +13,7 @@ router.get('/posts', async (req, res) => {
   const response = await blogController.getPosts(tag, page);
   // If error, set appropiate status
   const status = response.error ? response.status : 200;
-  // return response
+
   res.status(status).json(response);
 });
 
