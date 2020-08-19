@@ -18,6 +18,7 @@ export function BlogProvider(props) {
   const [tags, setTags] = useState(['All']);
   const [nextPage, setNextPage] = useState(null);
   const [previousPage, setPreviousPage] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
 
   /**
    * @name setTag
@@ -51,17 +52,28 @@ export function BlogProvider(props) {
    */
 
   async function getPosts(pageSize = 9) {
+    // Clean the error message
+    setErrorMessage(null);
+
     const tag = selectedTag !== 'all' ? selectedTag : null;
 
     const res = await getBlogPosts(tag, selectedPage);
-
-    setLoadingPosts(false);
-    setPosts(res.data);
-    setPostCount(res.meta.count);
-    setNextPage(res.meta.next_page);
-    setPreviousPage(res.meta.previous_page);
-
-    return res.data;
+    if (!res.error) {
+      setLoadingPosts(false);
+      setPosts(res.data);
+      setPostCount(res.meta.count);
+      setNextPage(res.meta.next_page);
+      setPreviousPage(res.meta.previous_page);
+      return res.data;
+    } else {
+      setLoadingPosts(false);
+      setPosts([]);
+      setPostCount(0);
+      setNextPage(null);
+      setPreviousPage(null);
+      setErrorMessage(res.message);
+      return res;
+    }
   }
 
   /**

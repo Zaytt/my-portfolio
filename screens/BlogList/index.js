@@ -18,7 +18,7 @@ export default function index(props) {
   return (
     <React.Fragment>
       <BlogHero />
-      <Header />
+      <Header sticky />
       <TagsList />
       <PostsList />
       <Pagination />

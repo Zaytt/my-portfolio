@@ -7,7 +7,7 @@ const navBarStyle = {
   borderBottom: '3px solid hsl(171, 100%, 41%)',
 };
 
-function Header({ router }) {
+function Header({ router, sticky }) {
   const [isActive, setisActive] = React.useState(false);
 
   const portfolioLinks = (
@@ -91,7 +91,9 @@ function Header({ router }) {
 
   return (
     <nav
-      className="navbar sticky-navbar has-background-black-ter is-dark"
+      className={`navbar ${
+        sticky ? 'sticky-navbar' : ''
+      } has-background-black-ter is-dark`}
       style={navBarStyle}
     >
       <div className="container px-3">

@@ -39,6 +39,8 @@ export default function PostsList() {
     </div>
   );
 
+  console.log(posts);
+
   // Get an array of postCards
   const postCards = posts.map((post, index) => {
     return (
@@ -69,7 +71,11 @@ export default function PostsList() {
       {/* <h1 className="title has-text-centered is-size-2">
         {loadingPosts ? 'Loading...' : 'Posts'}
       </h1> */}
-      {loadingPosts ? loaderSpinner : postTiles}
+      {loadingPosts
+        ? loaderSpinner
+        : posts.length > 0
+        ? postTiles
+        : noPostsFound}
     </div>
   );
 }

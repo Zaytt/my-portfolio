@@ -9,7 +9,7 @@ export default function index() {
   return (
     <div>
       <Hero />
-      <Header />
+      <Header sticky />
       <About />
       <Portfolio />
       <Contact />

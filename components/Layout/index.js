@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'next/router';
 import _ from 'lodash';
 import Header from 'components/Layout/Header';
 import Footer from 'components/Layout/Footer';
@@ -29,9 +30,13 @@ class Layout extends Component {
 
   render() {
     const { router, children } = this.props;
+
+    const renderHeader =
+      router.pathname === '/' || router.pathname === '/blog' ? false : true;
+
     return (
       <React.Fragment>
-        {/* <Header /> */}
+        {renderHeader && <Header sticky={false} />}
         {children}
         <Footer />
       </React.Fragment>
@@ -39,4 +44,4 @@ class Layout extends Component {
   }
 }
 
-export default Layout;
+export default withRouter(Layout);
