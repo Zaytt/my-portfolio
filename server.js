@@ -40,6 +40,10 @@ app.prepare().then(() => {
   server.use('/api/contact', contactRoutes);
   server.use('/api/blog', blogRoutes);
 
+  server.get('/blog/:slug', (req, res) => {
+    return app.render(req, res, '/blog/post', { slug: req.params.slug });
+  });
+
   server.get('*', handle);
 
   createServer(server).listen(port, (err) => {

@@ -24,3 +24,16 @@ export async function getBlogTags() {
     return res.data.data;
   });
 }
+
+/**
+ * @name getPost
+ * @description Requests the backend for a single post from ButterCMS
+ * @param {String} slug slug of the post
+ * @returns {Object} an Object containing the info of the post
+ */
+export async function getSingleBlogPost(slug) {
+  return await axios
+    .get('/api/blog/post', { params: { slug } })
+    .then((res) => res.data)
+    .catch((error) => error.response.data);
+}

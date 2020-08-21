@@ -25,7 +25,24 @@ exports.getPosts = async (tag, page) => {
 
     return res;
   } catch (error) {
-    return errorObject(error);
+    return errorObjectPosts(error);
+  }
+};
+
+/**
+ * Get posts from ButterCMS
+ * @param {String} slug the slug of the post
+ */
+exports.getSinglePost = async (slug) => {
+  try {
+    const post = await butter.post.retrieve(slug);
+    const res = {
+      success: true,
+      data: post.data,
+    };
+    return res;
+  } catch (error) {
+    return errorObjectSinglePost(error);
   }
 };
 
@@ -37,7 +54,8 @@ exports.getAllTags = async () => {
     const tags = await butter.tag.list();
     return tags.data;
   } catch (error) {
-    return errorObject(error);
+    console.log(error);
+    return [];
   }
 };
 
@@ -45,7 +63,7 @@ exports.getAllTags = async () => {
  * Returns an error object containing the error's message, status and data
  * @param {Error} error an Error obj
  */
-function errorObject(error) {
+function errorObjectPosts(error) {
   // Customize the message depending on the error status
   let message;
   switch (error.response.status) {
@@ -72,5 +90,32 @@ function errorObject(error) {
         previous_page: null,
       },
     },
+  };
+}
+
+/**
+ * Returns an error object containing the error's message, status and data
+ * @param {Error} error an Error obj
+ */
+function errorObjectSinglePost(error) {
+  // Customize the message depending on the error status
+  let message;
+  switch (error.response.status) {
+    case 401:
+      message = `Could not retrieve post. Please try again later.`;
+      break;
+    case 404:
+      message = `No post found with that slug.`;
+      break;
+    default:
+      message = 'Something happened while retrieving the blog post.';
+  }
+
+  return {
+    success: false,
+    error: error.message,
+    status: error.response.status,
+    message,
+    data: {},
   };
 }

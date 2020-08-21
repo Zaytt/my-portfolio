@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Tag from './Tag';
 import { useBlog } from '../../../context/blogContext';
 
-export default function TagsList() {
+export default function TagsList({ showSelected, alignment = 'centered' }) {
   // Get the values that we will use from the BlogContext
   const { selectedTag, getAllTags, tags } = useBlog();
 
@@ -17,12 +17,18 @@ export default function TagsList() {
 
   // Map a Tag array with the tags from BlogContext
   const tagList = tags.map((tag, index) => {
-    return <Tag key={index} tag={tag} isActive={selectedTag === tag.slug} />;
+    return (
+      <Tag
+        key={index}
+        tag={tag}
+        isActive={showSelected ? selectedTag === tag.slug : false}
+      />
+    );
   });
 
   return (
-    <div className="container my-5">
-      <div className="has-text-centered mb-5">{tagList}</div>
+    <div className="container mt-2 mb-5">
+      <div className={`has-text-${alignment} mb-5`}>{tagList}</div>
     </div>
   );
 }

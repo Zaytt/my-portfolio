@@ -37,8 +37,17 @@
   cursor: pointer;
 }
 
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.is-underlined {
+  text-decoration: underline;
+}
+
 #home {
-  background: url('/assets/hero/home.jpg') no-repeat center center fixed;
+  background: url('/assets/hero/home.jpg') no-repeat center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -46,7 +55,7 @@
 }
 
 #blog {
-  background: url('/assets/hero/blog.jpg') no-repeat center center fixed;
+  background: url('/assets/hero/blog.jpg') no-repeat center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

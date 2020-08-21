@@ -7,8 +7,28 @@ const navBarStyle = {
   borderBottom: '3px solid hsl(171, 100%, 41%)',
 };
 
+const TABLET_WIDTH = 769;
+
 function Header({ router, sticky }) {
   const [isActive, setisActive] = React.useState(false);
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  // Use effect to check when is mobile
+  React.useEffect(() => {
+    setIsMobile(window.innerWidth < TABLET_WIDTH);
+    window.addEventListener(
+      'resize',
+      _.throttle(() => setIsMobile(window.innerWidth < TABLET_WIDTH), 500)
+    );
+
+    return () => {
+      window.removeEventListener(
+        'resize',
+        () => setIsMobile(window.innerWidth < TABLET_WIDTH),
+        500
+      );
+    };
+  }, []);
 
   const portfolioLinks = (
     <React.Fragment>
@@ -64,10 +84,10 @@ function Header({ router, sticky }) {
           CONTACT
         </Link>
       </span>
-      <span className="navbar-separator"></span>
+      {!isMobile && <span className="navbar-separator" />}
       <span className="navbar-item">
         <NextLink href="/blog">
-          <span className="navbar-item-text">BLOG</span>
+          <span className="navbar-item-text has-text-white">BLOG</span>
         </NextLink>
       </span>
     </React.Fragment>
@@ -77,13 +97,13 @@ function Header({ router, sticky }) {
     <React.Fragment>
       <span className="navbar-item">
         <NextLink href="/">
-          <span className="navbar-item-text">MY PORTFOLIO</span>
+          <span className="navbar-item-text has-text-white">MY PORTFOLIO</span>
         </NextLink>
       </span>
-      <span className="navbar-separator"></span>
+      {!isMobile && <span className="navbar-separator" />}
       <span className="navbar-item ">
         <NextLink href="/blog">
-          <span className="navbar-item-text">BLOG</span>
+          <span className="navbar-item-text has-text-white">BLOG</span>
         </NextLink>
       </span>
     </React.Fragment>

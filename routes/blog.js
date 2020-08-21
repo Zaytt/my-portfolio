@@ -1,9 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const blogController = require('../controllers/blogController');
-const Butter = require('buttercms');
-
-const butter = Butter(process.env.BUTTER_KEY);
 
 // Returns an array of posts from ButterCMS
 router.get('/posts', async (req, res) => {
@@ -25,6 +22,16 @@ router.get('/tags', async (req, res) => {
   const status = response.error ? response.status : 200;
   // return response
   res.status(status).json(response);
+});
+
+// Return a post from ButterCMS
+router.get('/post', async (req, res) => {
+  // Get tag and page from req.query
+  const { slug } = req.query;
+  // Get the post from controller
+  const response = await blogController.getSinglePost(slug);
+  // return response
+  res.json(response);
 });
 
 module.exports = router;

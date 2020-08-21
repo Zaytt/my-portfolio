@@ -3,19 +3,20 @@ import { withRouter } from 'next/router';
 import _ from 'lodash';
 import Header from 'components/Layout/Header';
 import Footer from 'components/Layout/Footer';
+import Banner from './Header/Banner';
 
 class Layout extends Component {
   state = {
     width: 0,
     height: 0,
-    mode: 'desktop',
+    isMobile: 'desktop',
   };
 
   updateDimensions = () => {
     this.setState({
       width: window.innerWidth,
       height: window.innerHeight,
-      mode: window.innerWidth > 1087 ? 'desktop' : 'mobile',
+      isMobile: window.innerWidth < 769 ? true : false,
     });
   };
 
@@ -30,12 +31,13 @@ class Layout extends Component {
 
   render() {
     const { router, children } = this.props;
-
+    const { isMobile } = this.state;
     const renderHeader =
       router.pathname === '/' || router.pathname === '/blog' ? false : true;
 
     return (
       <React.Fragment>
+        {renderHeader && !isMobile && <Banner />}
         {renderHeader && <Header sticky={false} />}
         {children}
         <Footer />
