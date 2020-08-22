@@ -1,21 +1,22 @@
 import React from 'react';
+import { withRouter } from 'next/router';
 import { Link, animateScroll as scroll } from 'react-scroll';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
-export default function index() {
+function footer({ router }) {
   return (
     <footer className="footer has-background-black-ter">
       <div className="container has-text-centered mb-0 pb-0">
         <div className="has-text-centered ">
           <Link
             className="has-text-white"
-            to="home"
+            to="top"
             spy={true}
             smooth={true}
-            offset={-70}
+            offset={0}
             duration={700}
           >
             <FontAwesomeIcon
@@ -49,6 +50,17 @@ export default function index() {
             />
           </a>
         </div>
+        {router.pathname.includes('/blog') ? (
+          <div className="has-text-centered has-text-white">
+            <p className="mb-0 has-text-grey mt-5 is-size-7">Blog built with</p>
+            <a href="https://buttercms.com/" target="_blank">
+              <img
+                className="butter-image-footer"
+                src="https://cdn.buttercms.com/RyJ7UhcVTCRqrCFXwgCo"
+              />
+            </a>
+          </div>
+        ) : null}
         <div className="has-text-centered">
           <p className="has-text-grey mt-5 is-size-7">
             IVAN CHAVEZ ESCAMILLA{' '}
@@ -59,3 +71,5 @@ export default function index() {
     </footer>
   );
 }
+
+export default withRouter(footer);

@@ -16,26 +16,23 @@ export default function SocialMediaShare({ url, title, tags, summary }) {
   const source = 'https://www.ivanchavez.dev/blog';
 
   return (
-    <div
-      className="has-text-right has-text-centered-mobile
-    "
-    >
+    <div className="has-text-right has-text-centered-mobile">
       <span className="mx-1 is-vcentered">
         <FacebookShareButton
           url={completeUrl}
           quote={`I liked this post:\n${title} - "${summary}"\n`}
           hashtag={hashtags.length > 0 ? hashtags[0] : ''}
         >
-          <FacebookIcon size={32} round={true} />
+          <FacebookIcon size={36} round={true} />
         </FacebookShareButton>
       </span>
       <span className="mx-1">
         <TwitterShareButton
           url={completeUrl}
-          title={`This is awesome!\n${title}\n`}
+          title={`This post is awesome!\n${title}\n`}
           hashtags={hashtags}
         >
-          <TwitterIcon size={32} round={true} />
+          <TwitterIcon size={36} round={true} />
         </TwitterShareButton>
       </span>
       <span className="mx-1">
@@ -45,7 +42,7 @@ export default function SocialMediaShare({ url, title, tags, summary }) {
           source={source}
           summary={summary}
         >
-          <LinkedinIcon size={32} round={true} />
+          <LinkedinIcon size={36} round={true} />
         </LinkedinShareButton>
       </span>
 
@@ -54,7 +51,7 @@ export default function SocialMediaShare({ url, title, tags, summary }) {
           url={completeUrl}
           title={`I liked thi post: ${title}`}
         >
-          <RedditIcon size={32} round={true} />
+          <RedditIcon size={36} round={true} />
         </RedditShareButton>
       </span>
     </div>

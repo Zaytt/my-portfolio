@@ -8,8 +8,9 @@ import Contact from '../../components/Landing/Contact';
 export default function index() {
   return (
     <div>
+      <div id="top" />
       <Hero />
-      <Header sticky />
+      <Header sticky={true} />
       <About />
       <Portfolio />
       <Contact />

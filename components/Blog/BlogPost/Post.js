@@ -4,8 +4,8 @@ import SocialMediaShare from './SocialMediaShare';
 import PostSidePanel from './PostSidePanel';
 
 export default function Post({ post }) {
-  const { data } = post.data;
-  const { meta } = post;
+  const { data, meta } = post.data;
+
   return (
     <div className="container px-3 mb-5">
       <h1 className="has-text-centered title is-1 my-5">{data.title}</h1>
@@ -27,12 +27,12 @@ export default function Post({ post }) {
           />
         </div>
       </div>
-      <div className="columns">
+      <div className="columns ">
         <div className="column my-5 py-5 is-two-thirds" id="post">
           <div dangerouslySetInnerHTML={{ __html: data.body }} />
         </div>
-        <div className="column is-one-third">
-          <PostSidePanel />
+        <div className="column is-one-third py-5 my-5 mx-5">
+          <PostSidePanel meta={meta} />
         </div>
       </div>
     </div>

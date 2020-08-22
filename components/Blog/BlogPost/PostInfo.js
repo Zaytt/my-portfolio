@@ -11,7 +11,7 @@ export default function PostInfo({ author, tags, date }) {
       <h6 className="has-text-grey has-text-left is-italic has-text-weight-light has-text-centered-mobile">
         By
         <NextLink href="/">
-          <span className="clickable is-underlined">{` ${author.first_name} ${author.last_name} `}</span>
+          <a className="clickable is-underlined has-text-grey">{` ${author.first_name} ${author.last_name} `}</a>
         </NextLink>
         on {publishedDate}
       </h6>

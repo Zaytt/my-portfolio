@@ -18,7 +18,7 @@ export default function index(props) {
   return (
     <React.Fragment>
       <BlogHero />
-      <Header sticky />
+      <Header sticky={false} />
       <h1 className="has-text-centered subtitle is-4 mt-5 mb-3">Topics</h1>
       <TagsList />
       <hr className="mx-auto my-5" style={{ width: '50%' }} />

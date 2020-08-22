@@ -38,10 +38,8 @@ export default function Hero() {
           <Jump duration={1234}>
             <Link
               className="has-text-white"
-              to="about"
-              // spy={true}
+              to="top"
               smooth={true}
-              offset={-110}
               duration={700}
             >
               <FontAwesomeIcon width="0" icon={faChevronDown} size="3x" />

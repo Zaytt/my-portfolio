@@ -2,11 +2,11 @@ import React from 'react';
 import NextLink from 'next/link';
 import PaginationLink from './PaginationLink';
 import { useBlog } from '../../../context/blogContext';
+import { BLOG_PAGE_SIZE } from '../../../utils/constants';
 
 export default function Pagination() {
-  const pageSize = 9;
+  const pageSize = BLOG_PAGE_SIZE;
   const { selectedPage, postCount, previousPage, nextPage } = useBlog();
-
   const pageCount = Math.ceil(postCount / pageSize);
 
   // Simple pagination algorithm from https://gist.github.com/kottenator/9d936eb3e4e3c3e02598

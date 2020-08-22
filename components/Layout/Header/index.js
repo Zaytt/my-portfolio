@@ -87,7 +87,7 @@ function Header({ router, sticky }) {
       {!isMobile && <span className="navbar-separator" />}
       <span className="navbar-item">
         <NextLink href="/blog">
-          <span className="navbar-item-text has-text-white">BLOG</span>
+          <a className="navbar-item-text has-text-white">BLOG</a>
         </NextLink>
       </span>
     </React.Fragment>
@@ -97,13 +97,13 @@ function Header({ router, sticky }) {
     <React.Fragment>
       <span className="navbar-item">
         <NextLink href="/">
-          <span className="navbar-item-text has-text-white">MY PORTFOLIO</span>
+          <a className="navbar-item-text has-text-white">MY PORTFOLIO</a>
         </NextLink>
       </span>
       {!isMobile && <span className="navbar-separator" />}
       <span className="navbar-item ">
         <NextLink href="/blog">
-          <span className="navbar-item-text has-text-white">BLOG</span>
+          <a className="navbar-item-text has-text-white">BLOG</a>
         </NextLink>
       </span>
     </React.Fragment>
@@ -116,7 +116,7 @@ function Header({ router, sticky }) {
       } has-background-black-ter is-dark`}
       style={navBarStyle}
     >
-      <div className="container px-3">
+      <div className="container px-3" id={sticky ? '' : 'top'}>
         <div className="navbar-brand">
           <span className="navbar-item ">
             <Link
@@ -128,15 +128,12 @@ function Header({ router, sticky }) {
               duration={700}
             >
               <NextLink href="/">
-                <div
-                  className="navbar-item has-text-weight-semibold is-size-4"
-                  href="/"
-                >
+                <a className="navbar-item has-text-weight-semibold is-size-4">
                   <span className="has-text-danger">{`{ `}</span>{' '}
                   <span className="has-text-primary">{`ivan`}</span>
                   <span className="has-text-white">{`chavez`}</span>
                   <span className="has-text-danger">{` }`}</span>
-                </div>
+                </a>
               </NextLink>
             </Link>
           </span>

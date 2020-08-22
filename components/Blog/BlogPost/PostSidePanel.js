@@ -1,11 +1,13 @@
 import React from 'react';
-import TagList from '../BlogList/TagsList';
+import SideTagList from './SideTagList';
+import SidePostMeta from './SidePostMeta';
+import SocialMediaShare from './SocialMediaShare';
 
-export default function PostSidePanel() {
+export default function PostSidePanel({ meta }) {
   return (
-    <div>
-      <h1 className="title is-5 underline-bold mb-3">Other Topics</h1>
-      <TagList showSelected={false} alignment="left" />
+    <div id="side-panel">
+      <SideTagList />
+      <SidePostMeta meta={meta} />
     </div>
   );
 }

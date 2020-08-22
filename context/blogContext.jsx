@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { getBlogPosts, getBlogTags } from '../actions/blogActions';
 import { set } from 'lodash';
+import { BLOG_PAGE_SIZE } from '../utils/constants';
 
 const BlogContext = React.createContext();
 
@@ -53,7 +54,7 @@ export function BlogProvider(props) {
    * @returns {Array<{Object}>} An array of Objects containing the Posts
    */
 
-  async function getPosts(pageSize = 9) {
+  async function getPosts(pageSize = BLOG_PAGE_SIZE) {
     // Clean the error message
     setErrorMessage(null);
 

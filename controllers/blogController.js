@@ -1,8 +1,8 @@
 const Butter = require('buttercms');
-
 const butter = Butter(process.env.BUTTER_KEY);
+const { BLOG_PAGE_SIZE } = require('../utils/constants');
 
-const PAGE_SIZE = 9;
+const PAGE_SIZE = 3;
 
 /**
  * Get posts from ButterCMS
@@ -65,22 +65,28 @@ exports.getAllTags = async () => {
  */
 function errorObjectPosts(error) {
   // Customize the message depending on the error status
-  let message;
-  switch (error.response.status) {
-    case 401:
-      message = `Could not retrieve posts. Please try again later.`;
-      break;
-    case 404:
-      message = `No posts found within that page.`;
-      break;
-    default:
-      message = 'Something happened while retrieving blog posts.';
+  let message = 'Something happened while retrieving blog posts.';
+  if (error.response && error.response.status) {
+    switch (error.response.status) {
+      case 401:
+        message = `Could not retrieve posts. Please try again later.`;
+        break;
+      case 404:
+        message = `No posts found within that page.`;
+        break;
+      default:
+        message = 'Something happened while retrieving blog posts.';
+    }
   }
 
   return {
     success: false,
     error: error.message,
-    status: error.response.status,
+    status: error.response
+      ? error.response.status
+        ? error.response.status
+        : 500
+      : 500,
     message,
     data: {
       data: [],
@@ -99,22 +105,28 @@ function errorObjectPosts(error) {
  */
 function errorObjectSinglePost(error) {
   // Customize the message depending on the error status
-  let message;
-  switch (error.response.status) {
-    case 401:
-      message = `Could not retrieve post. Please try again later.`;
-      break;
-    case 404:
-      message = `No post found with that slug.`;
-      break;
-    default:
-      message = 'Something happened while retrieving the blog post.';
+  let message = 'Something happened while retrieving the blog post.';
+  if (error.response && error.response.status) {
+    switch (error.response.status) {
+      case 401:
+        message = `Could not retrieve post. Please try again later.`;
+        break;
+      case 404:
+        message = `No post found with that slug.`;
+        break;
+      default:
+        message = 'Something happened while retrieving the blog post.';
+    }
   }
 
   return {
     success: false,
     error: error.message,
-    status: error.response.status,
+    status: error.response
+      ? error.response.status
+        ? error.response.status
+        : 500
+      : 500,
     message,
     data: {},
   };
