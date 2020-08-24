@@ -1,49 +1,23 @@
 import React from 'react';
 import NextLink from 'next/link';
+import Router from 'next/router';
 import PaginationLink from './PaginationLink';
 import { useBlog } from '../../../context/blogContext';
 import { BLOG_PAGE_SIZE } from '../../../utils/constants';
 
 export default function Pagination() {
   const pageSize = BLOG_PAGE_SIZE;
-  const { selectedPage, postCount, previousPage, nextPage } = useBlog();
+  const {
+    selectedPage,
+    setPage,
+    postCount,
+    previousPage,
+    nextPage,
+  } = useBlog();
   const pageCount = Math.ceil(postCount / pageSize);
 
-  // Simple pagination algorithm from https://gist.github.com/kottenator/9d936eb3e4e3c3e02598
-  const paginationArray = (function() {
-    let current = selectedPage;
-    let last = pageCount;
-    let delta = 1;
-    let left = current - delta;
-    let right = current + delta + 1;
-    let range = [];
-    let rangeWithDots = [];
-    let l;
-
-    if (pageCount === 1) return [1];
-    range.push(1);
-
-    for (let i = current - delta; i <= current + delta; i++) {
-      if (i >= left && i < right && i < last && i > 1) {
-        range.push(i);
-      }
-    }
-    range.push(last);
-
-    for (let i of range) {
-      if (l) {
-        if (i - l === 2) {
-          rangeWithDots.push(l + 1);
-        } else if (i - l !== 1) {
-          rangeWithDots.push('...');
-        }
-      }
-      rangeWithDots.push(i);
-      l = i;
-    }
-
-    return rangeWithDots;
-  })();
+  // Generate the pagination array
+  const paginationArray = generatePaginationArray(selectedPage, pageCount);
 
   // Turn the pages array into a PaginationLink component array
   const pagesLinks = paginationArray.map((page, index) => {
@@ -56,24 +30,37 @@ export default function Pagination() {
     else return <PaginationLink key={index} page={page} />;
   });
 
+  // Update the page both in the Context and in the url query
+  const updatePage = (newPage) => {
+    // Create query obj
+    const query = {};
+    // If there's a tag in the query, add it to the new query
+    if (Router.query.tag) query.tag = encodeURI(Router.query.tag);
+    // Add the new page to the query
+    query.page = encodeURI(newPage);
+
+    // Push new query to url
+    Router.push({
+      pathname: '/blog',
+      query,
+    });
+    // Set page in Context
+    setPage(newPage);
+  };
+
   const renderPreviousButton = () => {
     if (previousPage) {
       return (
-        <NextLink href={`blog?page=${previousPage}`}>
-          <a
-            className="pagination-previous ml-5"
-            disabled={previousPage === null}
-          >
-            Previous
-          </a>
-        </NextLink>
+        <a
+          className="pagination-previous ml-5"
+          onClick={() => updatePage(previousPage)}
+        >
+          Previous
+        </a>
       );
     } else {
       return (
-        <a
-          className="pagination-previous ml-5"
-          disabled={previousPage === null}
-        >
+        <a className="pagination-previous ml-5" disabled>
           Previous
         </a>
       );
@@ -83,15 +70,16 @@ export default function Pagination() {
   const renderNextButton = () => {
     if (nextPage) {
       return (
-        <NextLink href={`blog?page=${nextPage}`}>
-          <a className="pagination-next mr-5" disabled={nextPage === null}>
-            Next page
-          </a>
-        </NextLink>
+        <a
+          className="pagination-next mr-5"
+          onClick={() => updatePage(nextPage)}
+        >
+          Next page
+        </a>
       );
     } else {
       return (
-        <a className="pagination-next mr-5" disabled={nextPage === null}>
+        <a className="pagination-next mr-5" disabled>
           Next page
         </a>
       );
@@ -113,4 +101,39 @@ export default function Pagination() {
       </nav>
     </div>
   );
+}
+
+function generatePaginationArray(selectedPage, pageCount) {
+  let current = selectedPage;
+  let last = pageCount;
+  let delta = 1;
+  let left = current - delta;
+  let right = current + delta + 1;
+  let range = [];
+  let rangeWithDots = [];
+  let l;
+
+  if (pageCount === 1) return [1];
+  range.push(1);
+
+  for (let i = current - delta; i <= current + delta; i++) {
+    if (i >= left && i < right && i < last && i > 1) {
+      range.push(i);
+    }
+  }
+  range.push(last);
+
+  for (let i of range) {
+    if (l) {
+      if (i - l === 2) {
+        rangeWithDots.push(l + 1);
+      } else if (i - l !== 1) {
+        rangeWithDots.push('...');
+      }
+    }
+    rangeWithDots.push(i);
+    l = i;
+  }
+
+  return rangeWithDots;
 }

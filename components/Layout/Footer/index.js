@@ -62,7 +62,7 @@ function footer({ router }) {
           </div>
         ) : null}
         <div className="has-text-centered">
-          <p className="has-text-grey mt-5 is-size-7">
+          <p className="has-text-grey mt-2 is-size-7">
             IVAN CHAVEZ ESCAMILLA{' '}
             <span className="has-text-primary-medium">©2020</span>
           </p>

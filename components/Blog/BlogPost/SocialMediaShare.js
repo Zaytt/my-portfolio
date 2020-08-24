@@ -35,7 +35,8 @@ export default function SocialMediaShare({ url, title, tags, summary }) {
           <TwitterIcon size={36} round={true} />
         </TwitterShareButton>
       </span>
-      <span className="mx-1">
+      {/* TODO figure out why LinkedIn Share button doesn't work */}
+      {/* <span className="mx-1">
         <LinkedinShareButton
           url={completeUrl}
           title={`I found this interesting: ${title}`}
@@ -44,7 +45,7 @@ export default function SocialMediaShare({ url, title, tags, summary }) {
         >
           <LinkedinIcon size={36} round={true} />
         </LinkedinShareButton>
-      </span>
+      </span> */}
 
       <span className="mx-1">
         <RedditShareButton

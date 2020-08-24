@@ -7,7 +7,7 @@ import Jump from 'react-reveal/Jump';
 
 export default function Hero() {
   return (
-    <section className="hero is-fullheight is-dark" id="blog">
+    <section className="hero is-fullheight is-dark" id="blog-hero">
       <SocialMediaBar />
       <div className="hero-body pt-0">
         <div className="container has-text-white">

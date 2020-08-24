@@ -46,7 +46,7 @@
   text-decoration: underline;
 }
 
-#home {
+#home-hero {
   background: url('/assets/hero/home.jpg') no-repeat center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -54,7 +54,18 @@
   background-size: cover;
 }
 
-#blog {
+#blog-post-banner {
+  background: url('/assets/hero/home.jpg') no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 200px;
+  display: flex;
+  align-items: center;
+}
+
+#blog-hero {
   background: url('/assets/hero/blog.jpg') no-repeat center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -118,7 +129,7 @@
   color: white;
 }
 .social-media-button:hover {
-  color: lightcyan;
+  color: lightgray;
   // color: hsl(347, 90%, 96%);
 }
 

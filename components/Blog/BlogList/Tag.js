@@ -2,7 +2,7 @@ import React from 'react';
 import Router from 'next/router';
 import { useBlog } from '../../../context/blogContext';
 
-export default function Tag({ tag, isActive }) {
+export default function Tag({ tag, isActive, isSideTag }) {
   // Get the setTag function from the BlogContext
   const { setTag, selectedTag } = useBlog();
 
@@ -19,7 +19,7 @@ export default function Tag({ tag, isActive }) {
         isActive ? 'is-danger' : ''
       } mx-1 my-1`}
       onClick={() => {
-        if (selectedTag === tag.slug) return;
+        if (!isSideTag && selectedTag === tag.slug) return;
         updateQuery(tag.slug);
         setTag(tag.slug);
       }}

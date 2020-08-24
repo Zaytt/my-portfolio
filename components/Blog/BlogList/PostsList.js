@@ -20,11 +20,7 @@ export default function PostsList() {
   values in an array in a a second parameter.
   */
   useEffect(() => {
-    // Used a timeout to imporove the UX, as the request is too fast and can be quite jarring
-    // It lets you enjoy the loading animation this way too :)
-    setTimeout(() => {
-      getPosts();
-    }, 333);
+    getPosts();
   }, [selectedTag, selectedPage]);
 
   // Configure the loader spinner

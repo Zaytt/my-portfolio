@@ -54,7 +54,7 @@ export function BlogProvider(props) {
    * @returns {Array<{Object}>} An array of Objects containing the Posts
    */
 
-  async function getPosts(pageSize = BLOG_PAGE_SIZE) {
+  async function getPosts() {
     // Clean the error message
     setErrorMessage(null);
 

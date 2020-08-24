@@ -2,10 +2,7 @@ import React from 'react';
 
 export default function Banner() {
   return (
-    <div
-      id="home"
-      style={{ height: '200px', display: 'flex', alignItems: 'center' }}
-    >
+    <div id="blog-post-banner">
       <div className="container">
         <h1 className="has-text-left title is-1">
           <span className="has-text-primary">const</span>

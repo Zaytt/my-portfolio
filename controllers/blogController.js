@@ -1,8 +1,7 @@
 const Butter = require('buttercms');
 const butter = Butter(process.env.BUTTER_KEY);
-const { BLOG_PAGE_SIZE } = require('../utils/constants');
 
-const PAGE_SIZE = 3;
+const PAGE_SIZE = process.env.BLOG_PAGE_SIZE;
 
 /**
  * Get posts from ButterCMS

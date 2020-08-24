@@ -2,7 +2,10 @@ import React, { useEffect } from 'react';
 import Tag from './Tag';
 import { useBlog } from '../../../context/blogContext';
 
-export default function TagsList({ showSelected, alignment = 'centered' }) {
+export default function TagsList(
+  { showSelected, alignment = 'centered' },
+  isSideBar = false
+) {
   // Get the values that we will use from the BlogContext
   const { selectedTag, getAllTags, tags } = useBlog();
 
@@ -22,6 +25,7 @@ export default function TagsList({ showSelected, alignment = 'centered' }) {
         key={index}
         tag={tag}
         isActive={showSelected ? selectedTag === tag.slug : false}
+        isSideTag={isSideBar}
       />
     );
   });

@@ -119,23 +119,14 @@ function Header({ router, sticky }) {
       <div className="container px-3" id={sticky ? '' : 'top'}>
         <div className="navbar-brand">
           <span className="navbar-item ">
-            <Link
-              className="has-text-white"
-              to="/"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={700}
-            >
-              <NextLink href="/">
-                <a className="navbar-item has-text-weight-semibold is-size-4">
-                  <span className="has-text-danger">{`{ `}</span>{' '}
-                  <span className="has-text-primary">{`ivan`}</span>
-                  <span className="has-text-white">{`chavez`}</span>
-                  <span className="has-text-danger">{` }`}</span>
-                </a>
-              </NextLink>
-            </Link>
+            <NextLink href="/">
+              <a className="navbar-item has-text-weight-semibold is-size-4">
+                <span className="has-text-danger">{`{ `}</span>{' '}
+                <span className="has-text-primary">{`ivan`}</span>
+                <span className="has-text-white">{`chavez`}</span>
+                <span className="has-text-danger">{` }`}</span>
+              </a>
+            </NextLink>
           </span>
 
           <a
