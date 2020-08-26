@@ -1,7 +1,8 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { withRouter } from 'next/router';
 import NextLink from 'next/link';
 import { Link, animateScroll as scroll } from 'react-scroll';
+import SearchBar from './SearchBar';
 
 const navBarStyle = {
   borderBottom: '3px solid hsl(171, 100%, 41%)',
@@ -111,7 +112,7 @@ function Header({ router, sticky }) {
 
   return (
     <nav
-      className={`navbar ${
+      className={`navbar main-navbar${
         sticky ? 'sticky-navbar' : ''
       } has-background-black-ter is-dark`}
       style={navBarStyle}
@@ -119,7 +120,7 @@ function Header({ router, sticky }) {
       <div className="container px-3" id={sticky ? '' : 'top'}>
         <div className="navbar-brand">
           <span className="navbar-item ">
-            <NextLink href="/">
+            <NextLink href={router.pathname === '/' ? '/' : '/blog'}>
               <a className="navbar-item has-text-weight-semibold is-size-4">
                 <span className="has-text-danger">{`{ `}</span>{' '}
                 <span className="has-text-primary">{`ivan`}</span>
@@ -152,6 +153,7 @@ function Header({ router, sticky }) {
           id="navbarMenu"
           style={isActive ? navBarStyle : {}}
         >
+          {router.pathname === '/' ? '' : <SearchBar />}
           <div className="navbar-end has-background-black-ter is-dark">
             {router.pathname === '/' ? portfolioLinks : blogLinks}
           </div>

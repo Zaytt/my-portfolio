@@ -15,6 +15,20 @@ export async function getBlogPosts(tag, page) {
 }
 
 /**
+ * @name searchBlogPosts
+ * @description Requests the backend for the posts from ButterCMS that match the given query
+ * @param {String} query The sender's name
+ * @param {Number} page The sender's email
+ * @returns {Object} an Object containing the meta info of the post and an array of posts
+ */
+export async function searchBlogPosts(query, page) {
+  return await axios
+    .get('/api/blog/search', { params: { query, page } })
+    .then((res) => res.data)
+    .catch((error) => error.response.data);
+}
+
+/**
  * @name getAllTags
  * @description Requests the backend for the all tags in the posts from ButterCMS
  * @returns {[Object]} An array of Objects containing the Tag and its slug

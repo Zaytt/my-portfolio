@@ -14,6 +14,18 @@ router.get('/posts', async (req, res) => {
   res.status(status).json(response);
 });
 
+// Returns an array of posts from ButterCMS
+router.get('/search', async (req, res) => {
+  // Get tag and page from req.query
+  const { query, page } = req.query;
+  // Get posts from controller
+  const response = await blogController.searchPosts(query, page);
+  // If error, set appropiate status
+  const status = response.error ? response.status : 200;
+
+  res.status(status).json(response);
+});
+
 //Return all tags from ButterCMS
 router.get('/tags', async (req, res) => {
   // Get tags from controller

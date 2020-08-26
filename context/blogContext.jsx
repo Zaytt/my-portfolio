@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { getBlogPosts, getBlogTags } from '../actions/blogActions';
-import { set } from 'lodash';
+import {
+  getBlogPosts,
+  getBlogTags,
+  searchBlogPosts,
+} from '../actions/blogActions';
 import { BLOG_PAGE_SIZE } from '../utils/constants';
 
 const BlogContext = React.createContext();
@@ -18,6 +21,7 @@ export function BlogProvider(props) {
   const [posts, setPosts] = useState([]);
   const [postCount, setPostCount] = useState(0);
   const [tags, setTags] = useState(['All']);
+  const [query, setQuery] = useState(null);
   const [nextPage, setNextPage] = useState(null);
   const [previousPage, setPreviousPage] = useState(null);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -29,9 +33,11 @@ export function BlogProvider(props) {
    */
 
   async function setTag(tag) {
+    setLoadingPosts(true);
+    setQuery(null);
     setSelectedTag(tag);
     setSelectedPage(1);
-    setLoadingPosts(true);
+    setQuery(null);
   }
 
   /**
@@ -46,11 +52,22 @@ export function BlogProvider(props) {
   }
 
   /**
+   * @name setQuery
+   * @description Set the search query as well as loadingPosts
+   * @param {Number} query
+   */
+
+  async function setSearchQuery(query) {
+    setLoadingPosts(true);
+    setQuery(query);
+    setSelectedPage(1);
+    setSelectedTag(null);
+  }
+
+  /**
    * @name getPosts
    * @description Gets the posts from butterCMS.
    * If a tag other than 'all' is selected, it filters the posts by that tag
-   * @param {Number} page the page of the posts
-   * @param {Number} pageSize the number of posts per page
    * @returns {Array<{Object}>} An array of Objects containing the Posts
    */
 
@@ -62,6 +79,31 @@ export function BlogProvider(props) {
 
     // Get the blog posts from backend
     const res = await getBlogPosts(tag, selectedPage);
+
+    // Set provider values
+    setLoadingPosts(false);
+    setPosts(res.data.data);
+    setPostCount(res.data.meta.count);
+    setNextPage(res.data.meta.next_page);
+    setPreviousPage(res.data.meta.previous_page);
+    setErrorMessage(res.data.success ? null : res.message);
+
+    return res.data;
+  }
+
+  /**
+   * @name searchPosts
+   * @description Searchs the posts from butterCMS.
+   * @param {Number} query the page of the posts
+   * @returns {Array<{Object}>} An array of Objects containing the Posts
+   */
+
+  async function searchPosts() {
+    // Clean the error message
+    setErrorMessage(null);
+
+    // Get the blog posts from backend
+    const res = await searchBlogPosts(query, selectedPage);
 
     // Set provider values
     setLoadingPosts(false);
@@ -100,15 +142,18 @@ export function BlogProvider(props) {
       loadingPosts,
       posts,
       tags,
+      query,
       postCount,
       nextPage,
       previousPage,
       errorMessage,
       setTag,
       setPage,
+      setSearchQuery,
       setLoadingPosts,
       getPosts,
       getAllTags,
+      searchPosts,
     };
   }, [
     selectedTag,
@@ -116,6 +161,7 @@ export function BlogProvider(props) {
     loadingPosts,
     posts,
     tags,
+    query,
     postCount,
     nextPage,
     previousPage,

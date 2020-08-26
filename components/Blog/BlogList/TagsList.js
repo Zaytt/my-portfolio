@@ -3,7 +3,7 @@ import Tag from './Tag';
 import { useBlog } from '../../../context/blogContext';
 
 export default function TagsList(
-  { showSelected, alignment = 'centered' },
+  { showSelected = true, alignment = 'centered' },
   isSideBar = false
 ) {
   // Get the values that we will use from the BlogContext

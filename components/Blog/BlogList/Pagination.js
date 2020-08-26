@@ -89,7 +89,7 @@ export default function Pagination() {
   };
 
   return (
-    <div className="container">
+    <div className="container py-5">
       <nav
         className="pagination is-centered mt-5 mb-5"
         role="navigation"

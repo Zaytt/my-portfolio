@@ -3,6 +3,7 @@ import Head from 'next/head';
 import React from 'react';
 import NProgress from 'nprogress';
 import Router, { withRouter } from 'next/router';
+import { BlogProvider } from '../context/blogContext';
 
 import Layout from 'components/Layout';
 import 'styles/styles.scss';
@@ -36,9 +37,11 @@ class MyApp extends App {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <title>{`Ivan Chavez - Full Stack Web Developer | Node & React`}</title>
         </Head>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <BlogProvider>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </BlogProvider>
       </React.Fragment>
     );
   }

@@ -8,11 +8,15 @@ import { useBlog } from '../../context/blogContext';
 
 export default function index(props) {
   // Get the required values from the BlogContext
-  const { setTag, setPage, selectedTag, selectedPage } = useBlog();
+  const { setTag, setPage, setSearchQuery } = useBlog();
 
   useEffect(() => {
-    setTag(props.tag);
-    setPage(props.page);
+    if (props.search) {
+      setSearchQuery(props.search);
+    } else {
+      setTag(props.tag);
+      setPage(props.page);
+    }
   }, []);
 
   return (

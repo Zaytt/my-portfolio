@@ -13,6 +13,8 @@ export default function PaginationLink({ page }) {
     const query = {};
     // If there's a tag in the query, add it to the new query
     if (Router.query.tag) query.tag = encodeURI(Router.query.tag);
+    // If there's a search in the query, add it to the new query
+    if (Router.query.search) query.search = encodeURI(Router.query.search);
     // Add the new page to the query
     query.page = encodeURI(newPage);
 

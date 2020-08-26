@@ -29,6 +29,30 @@ exports.getPosts = async (tag, page) => {
 };
 
 /**
+ * Search posts from ButterCMS
+ * @param {String} query The query to search for in the posts
+ * @param {Number} page The post list page number
+ */
+exports.searchPosts = async (query, page) => {
+  try {
+    // Define the search parameters
+    const params = { page: page, page_size: PAGE_SIZE };
+
+    // Get posts from ButterCMS
+    const posts = await butter.post.search(query, params);
+
+    const res = {
+      sucess: true,
+      data: posts.data,
+    };
+
+    return res;
+  } catch (error) {
+    return errorObjectPosts(error);
+  }
+};
+
+/**
  * Get posts from ButterCMS
  * @param {String} slug the slug of the post
  */
@@ -53,7 +77,6 @@ exports.getAllTags = async () => {
     const tags = await butter.tag.list();
     return tags.data;
   } catch (error) {
-    console.log(error);
     return [];
   }
 };

@@ -9,7 +9,9 @@ export default function PostsList() {
     posts,
     selectedTag,
     selectedPage,
+    query,
     getPosts,
+    searchPosts,
     loadingPosts,
     errorMessage,
   } = useBlog();
@@ -20,8 +22,12 @@ export default function PostsList() {
   values in an array in a a second parameter.
   */
   useEffect(() => {
-    getPosts();
-  }, [selectedTag, selectedPage]);
+    if (query) {
+      searchPosts();
+    } else {
+      getPosts();
+    }
+  }, [selectedTag, selectedPage, query]);
 
   // Configure the loader spinner
   const loaderSpinner = (

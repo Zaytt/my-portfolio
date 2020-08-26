@@ -7,9 +7,11 @@ export default function Tag({ tag, isActive, isSideTag }) {
   const { setTag, selectedTag } = useBlog();
 
   const updateQuery = (newQuery) => {
+    const query = {};
+    if (newQuery !== 'all') query.tag = encodeURI(newQuery);
     Router.push({
       pathname: '/blog',
-      query: { tag: encodeURI(newQuery) },
+      query,
     });
   };
 

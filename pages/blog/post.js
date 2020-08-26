@@ -4,11 +4,7 @@ import Post from '../../screens/BlogPost/';
 import { getSinglePost } from '../../controllers/blogController';
 
 export default function post({ post }) {
-  return (
-    <BlogProvider>
-      <Post post={post} />
-    </BlogProvider>
-  );
+  return <Post post={post} />;
 }
 
 export async function getServerSideProps(context) {
