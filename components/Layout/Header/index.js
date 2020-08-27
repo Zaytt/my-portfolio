@@ -112,7 +112,7 @@ function Header({ router, sticky }) {
 
   return (
     <nav
-      className={`navbar main-navbar${
+      className={`navbar main-navbar ${
         sticky ? 'sticky-navbar' : ''
       } has-background-black-ter is-dark`}
       style={navBarStyle}
