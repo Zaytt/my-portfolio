@@ -20,7 +20,7 @@ export default function PostCard({ post }) {
   return (
     <div className="card">
       <div className="card-image">
-        <NextLink href={`/blog/${post.url}`}>
+        <NextLink href={`/blog/${post.slug}`}>
           <a>
             <figure className="image is-4by3">
               <img
@@ -35,7 +35,7 @@ export default function PostCard({ post }) {
       <div className="card-content">
         <div className="media">
           <div className="media-content">
-            <NextLink href={`/blog/${post.url}`}>
+            <NextLink href={`/blog/${post.slug}`}>
               <a className="title is-4 clickable">{post.seo_title}</a>
             </NextLink>
           </div>
