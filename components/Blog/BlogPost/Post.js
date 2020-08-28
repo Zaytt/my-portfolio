@@ -8,7 +8,7 @@ export default function Post({ post }) {
 
   return (
     <div className="container px-3 mb-5">
-      <h1 className="has-text-centered title is-1 my-5">{data.title}</h1>
+      <h1 className="has-text-centered title is-1 my-5 pt-5">{data.title}</h1>
       <hr className="mx-auto my-5" style={{ width: '50%' }} />
       <div className="columns my-5">
         <div className="column">
