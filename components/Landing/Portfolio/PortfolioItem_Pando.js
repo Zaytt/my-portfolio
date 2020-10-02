@@ -1,29 +1,27 @@
 import React from 'react';
 import Fade from 'react-reveal/Fade';
-import Slide from 'react-reveal/Slide';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import NextJSLogo from '../../Logos/next_logo';
 import ReactLogo from '../../Logos/react_logo';
 import NodeLogo from '../../Logos/node_logo';
-import ReduxLogo from '../../Logos/redux_logo';
-import BootstrapLogo from '../../Logos/bootstrap_logo';
-import HerokuLogo from '../../Logos/heroku_logo';
+import BulmaLogo from '../../Logos/bulma_logo';
+import MongoLogo from '../../Logos/mongo_logo';
 
 export default function PortfolioItem({}) {
   return (
-    <Fade right>
+    <Fade left>
       <div
         className="container has-background-white-ter"
         style={{ borderRadius: '25px' }}
       >
         <div className="columns is-centered is-desktop">
           <div className="column has-text-right-desktop has-text-centered is-half-desktop">
-            <a href="http://www.mypubgsquad.com" target="_blank">
+            <a href="http://www.pandomap.com" target="_blank">
               {/* <Fade left> */}
               <figure className="image image is-3by2">
-                <img src="/assets/portfolio/mypubgsquad.png" style={imgStyle} />
+                <img src="/assets/portfolio/pandomap.png" style={imgStyle} />
               </figure>
               {/* </Fade> */}
             </a>
@@ -33,61 +31,43 @@ export default function PortfolioItem({}) {
             {/* <Fade right> */}
             <div className="container has-text-weight-normal has-text-centered-mobile pt-3 px-5">
               <h1 className="is-size-3 has-text-left-desktop has-text-centeredhas-text-weight-semibold mb-2">
-                MYPUBGSQUAD
+                Pando
                 <span className="has-text-right">
-                  <a href="http://www.mypubgsquad.com" target="_blank">
+                  <a href="http://www.pandomap.com" target="_blank">
                     <FontAwesomeIcon
                       width="0"
                       icon={faExternalLinkAlt}
                       className="ml-3 px-1 social-media-button2"
                     />
                   </a>
-                  <a
-                    href="https://github.com/Zaytt/mypubgsquad"
-                    target="_blank"
-                  >
-                    <FontAwesomeIcon
-                      width="0"
-                      icon={faGithub}
-                      className="mx-2 px-1 social-media-button2"
-                    />
-                  </a>
                 </span>
               </h1>
               <p>
-                <span className="has-text-weight-semibold">
-                  mypubgsquad.com
-                </span>{' '}
-                is a webite that provides information regarding a player's
-                statistics inside the popular game{' '}
+                I built{' '}
+                <span className="has-text-weight-semibold">pandomap.com</span>{' '}
+                for{' '}
                 <a
-                  href="https://www.pubg.com/"
+                  href="https://groundbreakershub.org/"
                   target="_blank"
-                  className="tag is-warning has-text-weight-semibold"
+                  className="has-text-primary has-text-weight-semibold"
                 >
-                  Playerunknown's Battlegrounds
+                  The Groundbreakers Network
                 </a>
                 .
               </p>
               <p className="mt-2">
-                What differentiates this site from others similar to it, is that
-                it takes the data of a group's most recent matches and processes
-                that information, returning their statistics and performance as
-                a group rather than as individuals.
+                Pando is a web app that aims to help people locate helpful
+                resources during these Pandemic times. From Shelter, to Meal
+                Relief and Healthcare, Pando provides the location and contact
+                information of thousands of help centers.
               </p>
               <p className="my-2">
-                During the development of this website, I collaborated on
-                building new features for an API wrapper of the official{' '}
-                <span className="has-text-weight-semibold">PUBG</span> API,
-                which can be found{' '}
-                <a
-                  className="tag is-link is-outlined has-text-weight-semibold"
-                  href="https://github.com/ickerio/pubg.js"
-                  target="_blank"
-                >
-                  HERE
-                </a>
-                .
+                For ease of use, Pando allows users to sign up through Facebook,
+                Google or a simple username and password. After that, Pando
+                locates the user's position in the globe and shows him the
+                resources that are near him. The user can also add a new
+                resource if he knows one or fill in missing information about an
+                already existing resource.
               </p>
               <span className="has-text-weight-semibold is-size-6">
                 Built with:
@@ -127,29 +107,20 @@ export default function PortfolioItem({}) {
                   </div>
                   <div className="column mx-1 ">
                     <a
-                      href="https://redux.js.org/"
+                      href="https://bulma.io/"
                       target="_blank"
                       className="underlined-on-hover"
                     >
-                      <ReduxLogo width={42} height={42} />
+                      <BulmaLogo width={48} height={48} />
                     </a>
                   </div>
                   <div className="column mx-1 ">
                     <a
-                      href="https://getbootstrap.com/"
+                      href="https://www.mongodb.com"
                       target="_blank"
                       className="underlined-on-hover"
                     >
-                      <BootstrapLogo width={42} height={42} />
-                    </a>
-                  </div>
-                  <div className="column mx-1 ">
-                    <a
-                      href="https://www.heroku.com/"
-                      target="_blank"
-                      className="underlined-on-hover"
-                    >
-                      <HerokuLogo width={42} height={40} />
+                      <MongoLogo width={110} height={48} />
                     </a>
                   </div>
                 </div>

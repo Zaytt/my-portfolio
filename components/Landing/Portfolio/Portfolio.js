@@ -1,6 +1,6 @@
 import React from 'react';
-import Item from './PortfolioItem_Pubg';
 import PortfolioItemPubg from './PortfolioItem_Pubg';
+import PortfolioItemPando from './PortfolioItem_Pando';
 import AngledSeparator from '../AngledSeparator';
 
 export default function Portfolio() {
@@ -12,7 +12,14 @@ export default function Portfolio() {
             <span className="underline-bold">PORTFOLIO</span>
           </h1>
         </div>
-        <div>
+        <div className="my-5">
+          <PortfolioItemPando />
+        </div>
+        <div className="is-flex is-flex-center">
+          <hr className="has-background-danger separator" />
+        </div>
+
+        <div className="my-5">
           <PortfolioItemPubg />
         </div>
       </div>

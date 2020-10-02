@@ -31,7 +31,7 @@ export default function PortfolioItem({}) {
 
           <div className="column is-half-desktop is-narrow">
             {/* <Fade right> */}
-            <div className="container is-fluid has-text-weight-normal has-text-centered-mobile pt-3 pr-4">
+            <div className="container is-fluid has-text-weight-normal has-text-centered-mobile pt-3 px-5">
               <h1 className="is-size-3 has-text-left-desktop has-text-centeredhas-text-weight-semibold mb-2">
                 MYPUBGSQUAD
                 <span className="has-text-right">
