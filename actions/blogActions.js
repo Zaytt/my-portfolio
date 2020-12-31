@@ -29,6 +29,19 @@ export async function searchBlogPosts(query, page) {
 }
 
 /**
+ * @name getPages
+ * @description Requests the backend for the pages from ButterCMS
+ * @param {String} type The page type
+ * @returns {Object} an Object containing the meta info of the post and an array of posts
+ */
+export async function getBlogPages(type) {
+  return await axios
+    .get('/api/blog/pages', { params: { type } })
+    .then((res) => res.data)
+    .catch((error) => error.response.data);
+}
+
+/**
  * @name getAllTags
  * @description Requests the backend for the all tags in the posts from ButterCMS
  * @returns {[Object]} An array of Objects containing the Tag and its slug

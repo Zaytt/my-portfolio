@@ -53,6 +53,28 @@ exports.searchPosts = async (query, page) => {
 };
 
 /**
+ * Get pages from ButterCMS
+ */
+exports.getPages = async (type) => {
+  try {
+    // Define the posts parameters
+    const params = { page: 1, page_size: 10 };
+
+    // Get posts from ButterCMS
+    const pages = await butter.page.list(type, params);
+
+    const res = {
+      sucess: true,
+      data: pages.data,
+    };
+
+    return res;
+  } catch (error) {
+    return errorObjectPosts(error);
+  }
+};
+
+/**
  * Get posts from ButterCMS
  * @param {String} slug the slug of the post
  */

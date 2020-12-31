@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function next_logo({ width, height }) {
+export default function next_logo({ width = 42, height = 40 }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

@@ -1,9 +1,19 @@
-import React from 'react';
-import PortfolioItemPubg from './PortfolioItem_Pubg';
-import PortfolioItemPando from './PortfolioItem_Pando';
+import React, { useEffect, useState } from 'react';
+import PortfolioItem from './PortfolioItem';
 import AngledSeparator from '../AngledSeparator';
+import { getBlogPages } from '../../../actions/blogActions';
 
 export default function Portfolio() {
+  const [pages, setPages] = useState([]);
+  useEffect(() => {
+    const fetchPages = async () => {
+      const pages = await getBlogPages('portfolio_item');
+      if (pages.sucess) setPages(pages.data.data);
+    };
+
+    fetchPages();
+  }, []);
+
   return (
     <section id="portfolio">
       <div className="container is-fluid mb-6 pb-6">
@@ -12,16 +22,13 @@ export default function Portfolio() {
             <span className="underline-bold">PORTFOLIO</span>
           </h1>
         </div>
-        <div className="my-5">
-          <PortfolioItemPando />
-        </div>
-        <div className="is-flex is-flex-center">
-          <hr className="has-background-danger separator" />
-        </div>
-
-        <div className="my-5">
-          <PortfolioItemPubg />
-        </div>
+        {pages.map((page, index) => {
+          return (
+            <div className="my-5" key={index}>
+              <PortfolioItem item={page} />
+            </div>
+          );
+        })}
       </div>
 
       <AngledSeparator />

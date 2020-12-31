@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function mongo_logo({ width, height }) {
+export default function mongo_logo({ width = 110, height = 48 }) {
   return (
     <svg
       aria-hidden="true"

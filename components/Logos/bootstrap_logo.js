@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function next_logo({ width, height }) {
+export default function next_logo({ width = 42, height = 42 }) {
   return (
     <svg viewBox="0 0 128 128" width={width} height={height}>
       <path

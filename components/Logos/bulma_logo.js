@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function bulma_logo({ width, height }) {
+export default function bulma_logo({ width = 48, height = 48 }) {
   return (
     <svg
       aria-hidden="true"
