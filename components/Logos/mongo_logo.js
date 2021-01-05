@@ -8,8 +8,8 @@ export default function mongo_logo({ width = 110, height = 48 }) {
       width={width}
       height={height}
       style={{
-        '-ms-transform': 'rotate(360deg',
-        '-webkit-transform': 'rotate(360deg)',
+        msTransofrm: 'rotate(360deg',
+        WebkitTransofrm: 'rotate(360deg)',
         transform: ' rotate(360deg)',
       }}
       preserveAspectRatio="xMidYMid meet"

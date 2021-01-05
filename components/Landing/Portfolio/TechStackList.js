@@ -27,9 +27,9 @@ function TechStackList({ techs }) {
       <span className="has-text-weight-semibold is-size-6">Built with:</span>
       <div className="has-text-centered container is-vertical-center mt-3">
         <div className="columns is-mobile is-multiline is-aligned-bottom">
-          {techs.map((tech) => {
+          {techs.map((tech, index) => {
             return (
-              <div className="column mx-1 ">
+              <div className="column mx-1 " key={index}>
                 <a
                   href={techLogos[tech].url}
                   target="_blank"
