@@ -7,7 +7,14 @@ import Jump from 'react-reveal/Jump';
 
 export default function Hero() {
   return (
-    <section className="hero is-fullheight is-dark" id="home-hero">
+    <section
+      className="hero is-fullheight is-dark"
+      id="home-hero"
+      style={{
+        background: `url('/assets/hero/home.jpg') no-repeat center`,
+        backgroundSize: 'cover',
+      }}
+    >
       <SocialMediaBar />
       <div className="hero-body pt-0">
         <div className="container has-text-white">

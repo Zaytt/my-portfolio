@@ -3,6 +3,7 @@ import { withRouter } from 'next/router';
 import NextLink from 'next/link';
 import { Link, animateScroll as scroll } from 'react-scroll';
 import SearchBar from './SearchBar';
+import throttle from 'lodash.throttle';
 
 const navBarStyle = {
   borderBottom: '3px solid hsl(171, 100%, 41%)',
@@ -19,7 +20,7 @@ function Header({ router, sticky }) {
     setIsMobile(window.innerWidth < TABLET_WIDTH);
     window.addEventListener(
       'resize',
-      _.throttle(() => setIsMobile(window.innerWidth < TABLET_WIDTH), 500)
+      throttle(() => setIsMobile(window.innerWidth < TABLET_WIDTH), 500)
     );
 
     return () => {

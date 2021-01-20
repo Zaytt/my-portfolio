@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { withRouter } from 'next/router';
-import _ from 'lodash';
+import throttle from 'lodash.throttle';
 import Header from 'components/Layout/Header';
 import Footer from 'components/Layout/Footer';
 import Banner from './Header/Banner';
@@ -22,7 +22,7 @@ class Layout extends Component {
 
   componentDidMount = () => {
     this.updateDimensions();
-    window.addEventListener('resize', _.throttle(this.updateDimensions, 500));
+    window.addEventListener('resize', throttle(this.updateDimensions, 500));
   };
 
   componentWillUnmount = () => {
