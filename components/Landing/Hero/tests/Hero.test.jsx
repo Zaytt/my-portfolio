@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
+
 import Hero from '../Hero';
 
 test('greeting message is displaying correctly', () => {
