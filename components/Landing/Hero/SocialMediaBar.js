@@ -9,7 +9,11 @@ export default function ContactNavbar() {
     <nav className="navbar">
       <div className="container">
         <div className="navbar-end mt-4 ">
-          <a href="https://github.com/Zaytt" target="_blank">
+          <a
+            href="https://github.com/Zaytt"
+            target="_blank"
+            aria-label="github-link"
+          >
             <FontAwesomeIcon
               icon={faGithub}
               size="3x"
@@ -17,7 +21,11 @@ export default function ContactNavbar() {
               width="0"
             />
           </a>
-          <a href="https://www.linkedin.com/in/ivanchaveze/" target="_blank">
+          <a
+            href="https://www.linkedin.com/in/ivanchaveze/"
+            target="_blank"
+            aria-label="linkedin-link"
+          >
             <FontAwesomeIcon
               icon={faLinkedin}
               size="3x"
