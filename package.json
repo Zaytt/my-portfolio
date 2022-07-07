@@ -31,7 +31,7 @@
     "express-rate-limit": "^5.2.6",
     "helmet": "^3.23.3",
     "lodash.throttle": "^4.1.1",
-    "moment": "^2.29.1",
+    "moment": "^2.29.4",
     "next": "^9.5.5",
     "next-redux-wrapper": "^6.0.2",
     "node-sass": "^4.12.0",
