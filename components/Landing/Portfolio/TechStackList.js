@@ -23,7 +23,7 @@ const techLogos = {
 };
 function TechStackList({ techs }) {
   return (
-    <div>
+    <div className="my-3">
       <span className="has-text-weight-semibold is-size-6">Built with:</span>
       <div className="has-text-centered container is-vertical-center mt-3">
         <div className="columns is-mobile is-multiline is-aligned-bottom">

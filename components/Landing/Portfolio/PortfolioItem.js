@@ -24,7 +24,10 @@ export default function PortfolioItem({ item }) {
         <div className="columns is-centered is-desktop">
           <PortfolioItemImage websiteUrl={websiteUrl} imageUri={imageUri} />
           <div className="column is-half-desktop is-narrow">
-            <div className="container is-fluid has-text-weight-normal has-text-centered-mobile pt-3 px-5">
+            <div
+              className="container is-flex is-flex-direction-column is-justify-content-space-between has-text-weight-normal has-text-centered-mobile pt-3 px-5"
+              style={{ height: '100%' }}
+            >
               {/* Item Header */}
               <PortfolioItemHeader
                 title={title}
