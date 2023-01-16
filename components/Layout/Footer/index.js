@@ -64,7 +64,7 @@ function footer({ router }) {
         <div className="has-text-centered">
           <p className="has-text-grey mt-2 is-size-7">
             IVAN CHAVEZ ESCAMILLA{' '}
-            <span className="has-text-primary-medium">©2020</span>
+            <span className="has-text-primary-medium">{`©${new Date().getFullYear()}`}</span>
           </p>
         </div>
       </div>

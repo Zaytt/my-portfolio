@@ -35,7 +35,7 @@ class MyApp extends App {
       <React.Fragment>
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <title>{`Ivan Chavez - Full Stack Web Developer | Node & React`}</title>
+          <title>{`Ivan Chavez - Full Stack Web Developer`}</title>
         </Head>
         <BlogProvider>
           <Layout>
