@@ -38,7 +38,7 @@ export async function getBlogPages(type) {
   return await axios
     .get('/api/blog/pages', { params: { type } })
     .then((res) => res.data)
-    .catch((error) => error.response.data);
+    .catch((error) => console.log(error));
 }
 
 /**

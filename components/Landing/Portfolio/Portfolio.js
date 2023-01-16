@@ -8,7 +8,7 @@ export default function Portfolio() {
   useEffect(() => {
     const fetchPages = async () => {
       const pages = await getBlogPages('portfolio_item');
-      if (pages.sucess) setPages(pages.data.data);
+      if (pages && pages.sucess) setPages(pages.data.data);
     };
 
     fetchPages();
