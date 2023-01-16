@@ -8,7 +8,7 @@ export default function PortfolioItem({ item }) {
   const {
     title,
     content,
-    image,
+    imageuri: imageUri,
     websiteurl: websiteUrl,
     githuburl: githubUrl,
   } = item.fields;
@@ -22,7 +22,7 @@ export default function PortfolioItem({ item }) {
         style={{ borderRadius: '25px' }}
       >
         <div className="columns is-centered is-desktop">
-          <PortfolioItemImage websiteUrl={websiteUrl} image={image} />
+          <PortfolioItemImage websiteUrl={websiteUrl} imageUri={imageUri} />
           <div className="column is-half-desktop is-narrow">
             <div className="container is-fluid has-text-weight-normal has-text-centered-mobile pt-3 px-5">
               {/* Item Header */}
